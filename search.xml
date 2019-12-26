@@ -12,31 +12,95 @@
 </ul>
 <a id="more"></a>
 <h2 id="数据隔离级别概念缘起">数据隔离级别概念缘起</h2>
-<p>数据库的基本目标为无论什么情况下，都要保持数据的一致性，而为了达成这一目标，事务处理必须确保ACID性质，即: - 原子性(Atomic) =&gt; 数据库恢复机制 - 一致性(Consistency) =&gt; 事务处理的目标 - 隔离性(Isolation) =&gt; 并发控制机制 - 持久性(Durability) =&gt; 数据库恢复机制</p>
+<p>数据库的基本目标为无论什么情况下，都要保持数据的一致性，而为了达成这一目标，事务处理必须确保ACID性质，即:</p>
+<ul>
+<li>原子性(Atomic) =&gt; 数据库恢复机制</li>
+<li>一致性(Consistency) =&gt; 事务处理的目标</li>
+<li>隔离性(Isolation) =&gt; 并发控制机制</li>
+<li>持久性(Durability) =&gt; 数据库恢复机制</li>
+</ul>
 <p><strong>隔离级别</strong>对应的概念正是<strong>隔离性</strong>，所以这是一个与并发控制相关的概念。一个良好的隔离级别应该是每个事务在执行时感觉不到任何其他事务的影响。</p>
 <h2 id="数据隔离性应对的问题">数据隔离性应对的问题</h2>
-<p>显然当事务并发时会产生很多数据不一致的问题，归结起来有三类不一致性： - 丢失修改 Lost Update - 读脏数据 Dirty Read - 不可重复读 Non-repeatable Read</p>
-<p>但实际操作起来，由于隔离的粒度不同，还有一类不一致性，即： - 幻读 Phantoms</p>
+<p>显然当事务并发时会产生很多数据不一致的问题，归结起来有三类不一致性：</p>
+<ul>
+<li>丢失修改 Lost Update</li>
+<li>读脏数据 Dirty Read</li>
+<li>不可重复读 Non-repeatable Read</li>
+</ul>
+<p>但实际操作起来，由于隔离的粒度不同，还有一类不一致性，即：</p>
+<ul>
+<li>幻读 Phantoms</li>
+</ul>
 <p>值得提一下的是，幻读和不可重复读的概念很接近，都是两次查询(读取)操作结果不同，而不一样的是：幻读的条件更特殊，幻读指的是记录的条数变了，当记录条数不变，仅仅内容改变时不是幻读。<strong>幻读属于不可重复读的一种情况</strong></p>
-<p>例子： - 某事务第一次查询某人的存款余额是100，之后其他事务修改了余额，再次读取时余额不再是100，这就是不可重复读，但不是幻读。 - 某事务查询所有存款余额大于100的人，第一次查询只有一个人，之后其他事务插入了另外一个余额大于100的记录，再次查询，变成了两个人，这就是幻读，也是不可重复读。</p>
+<p>例子：</p>
+<ul>
+<li>某事务第一次查询某人的存款余额是100，之后其他事务修改了余额，再次读取时余额不再是100，这就是不可重复读，但不是幻读。</li>
+<li>某事务查询所有存款余额大于100的人，第一次查询只有一个人，之后其他事务插入了另外一个余额大于100的记录，再次查询，变成了两个人，这就是幻读，也是不可重复读。</li>
+</ul>
 <h2 id="数据库的隔离级别定义">数据库的隔离级别定义</h2>
-<p>数据库的隔离级别分为四层，即： - 串行化 Serializable - 可重复读 Repeatable Read - 读已提交 Read Committed - 读未提交 Read Uncommitted</p>
-<p>而这四个概念的定义是通过何时释放锁以及何时释放锁来定义的(也有用时间戳机制来描述的): <strong>注意下列加锁操作都是要做什么操作，就加对应操作的锁，比方说读操作就加读锁，而不需要考虑接下来要进行写操作而在读的时候加写锁的情况。</strong> <strong>1. 串行化</strong> 最高的隔离级别。对于基于锁的并发控制数据库实现：串行化要求<strong>读锁和写锁(根据所选数据获取)在事务结束的时候释放</strong>。同时当使用带有范围条件<code>where</code>的<code>SELECT</code>语句查询时，要求增加相应的范围锁（例如使用<code>select * from t where val&gt;10 and val &lt; 15</code>查询后，会增加相应的<strong>范围锁</strong>，其他事务插入<code>val</code>在这个范围的数据是不被允许的）。 <strong>2.可重复读</strong> 对于基于锁的并发控制数据库实现：要求<strong>读锁和写锁(根据所选数据获取)在事务结束的时候释放</strong>。但是<strong>不管理范围锁</strong>。 <strong>3.读已提交</strong> 对于基于锁的并发控制数据库实现：要<strong>写锁(根据所选数据获取)在事务结束的时候释放，读锁在<code>select</code>执行结束后立即释放</strong>。这一级别同样不管理范围锁。 <strong>4.读未提交</strong> 对于这一层级，完全不加锁。</p>
+<p>数据库的隔离级别分为四层，即：</p>
+<ul>
+<li>串行化 Serializable</li>
+<li>可重复读 Repeatable Read</li>
+<li>读已提交 Read Committed</li>
+<li>读未提交 Read Uncommitted</li>
+</ul>
+<p>而这四个概念的定义是通过何时释放锁以及何时释放锁来定义的(也有用时间戳机制来描述的): <strong>注意下列加锁操作都是要做什么操作，就加对应操作的锁，比方说读操作就加读锁，而不需要考虑接下来要进行写操作而在读的时候加写锁的情况。</strong></p>
+<p><strong>1. 串行化</strong> 最高的隔离级别。对于基于锁的并发控制数据库实现：串行化要求<strong>读锁和写锁(根据所选数据获取)在事务结束的时候释放</strong>。同时当使用带有范围条件<code>where</code>的<code>SELECT</code>语句查询时，要求增加相应的范围锁（例如使用<code>select * from t where val&gt;10 and val &lt; 15</code>查询后，会增加相应的<strong>范围锁</strong>，其他事务插入<code>val</code>在这个范围的数据是不被允许的）。</p>
+<p><strong>2.可重复读</strong> 对于基于锁的并发控制数据库实现：要求<strong>读锁和写锁(根据所选数据获取)在事务结束的时候释放</strong>。但是<strong>不管理范围锁</strong>。</p>
+<p><strong>3.读已提交</strong> 对于基于锁的并发控制数据库实现：要<strong>写锁(根据所选数据获取)在事务结束的时候释放，读锁在<code>select</code>执行结束后立即释放</strong>。这一级别同样不管理范围锁。</p>
+<p><strong>4.读未提交</strong> 对于这一层级，完全不加锁。</p>
 <p>到这里我们就可以得出如下结论的表格：</p>
 <figure>
 <img src="/posts/28475/70034e19.png" alt><figcaption>70034e19.png</figcaption>
 </figure>
-<p>其实这个表格中一些问题的避免是和封锁方法是对应的： - 范围锁可以避免<strong>幻读</strong>， - 读锁和写锁在事务结束时释放可以避免<strong>丢失修改，不可重复度</strong> - 写锁在事务结束时释放，申请读锁并在之后释放可以避免<strong>读脏数据</strong></p>
+<p>其实这个表格中一些问题的避免是和封锁方法是对应的：</p>
+<ul>
+<li>范围锁可以避免<strong>幻读</strong>，</li>
+<li>读锁和写锁在事务结束时释放可以避免<strong>丢失修改，不可重复度</strong></li>
+<li>写锁在事务结束时释放，申请读锁并在之后释放可以避免<strong>读脏数据</strong></li>
+</ul>
 <h2 id="数据库封锁协议">数据库封锁协议</h2>
-<p>为了定义并发控制的解决策略，引入了串行化和可串行化的概念。为了达到可串行化调度，就有了一系列的控制方法。其中比较好的控制协议就是通过锁的控制来实现的，这就引入了一系列的封锁协议： - 一级封锁协议 - 二级封锁协议 - 三级封锁协议 - 两阶段封锁协议 - 一次封锁协议</p>
+<p>为了定义并发控制的解决策略，引入了串行化和可串行化的概念。为了达到可串行化调度，就有了一系列的控制方法。其中比较好的控制协议就是通过锁的控制来实现的，这就引入了一系列的封锁协议：</p>
+<ul>
+<li>一级封锁协议</li>
+<li>二级封锁协议</li>
+<li>三级封锁协议</li>
+<li>两阶段封锁协议</li>
+<li>一次封锁协议</li>
+</ul>
 <p>封锁协议是通用的协议，是编程人员编码或者设计的规范。</p>
-<p>它们的定义如下: &gt; 一级封锁协议: 事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。 &gt; 二级封锁协议：一级封锁协议加上事务T在读取数据R之前必须先对其加S锁，读完后方可释放S锁。 &gt; 三级封锁协议：一级封锁协议加上事务T在读取数据R之前必须先对其加S锁，直到事务结束才释放。 &gt; 两阶段封锁协议： 　　① 在对任何数据进行读、写操作之前，首先要申请并获得对该数据的封锁。 　　② 在释放一个封锁之后，事务不再申请和获得其它任何封锁。 &gt; 一次封锁协议： 一次将所有要使用的数据全部加锁</p>
+<p>它们的定义如下:</p>
+<blockquote>
+<p>一级封锁协议: 事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。</p>
+</blockquote>
+<blockquote>
+<p>二级封锁协议：一级封锁协议加上事务T在读取数据R之前必须先对其加S锁，读完后方可释放S锁。</p>
+</blockquote>
+<blockquote>
+<p>三级封锁协议：一级封锁协议加上事务T在读取数据R之前必须先对其加S锁，直到事务结束才释放。</p>
+</blockquote>
+<blockquote>
+<p>两阶段封锁协议：① 在对任何数据进行读、写操作之前，首先要申请并获得对该数据的封锁。② 在释放一个封锁之后，事务不再申请和获得其它任何封锁。</p>
+</blockquote>
+<blockquote>
+<p>一次封锁协议： 一次将所有要使用的数据全部加锁</p>
+</blockquote>
 <p>其中事务结束包括正常结束（COMMIT）和非正常结束（ROLLBACK）</p>
-<p>通过定义我们貌似可以发现，封锁协议和数据库隔离级别<strong>看似</strong>有如下对应关系： - 二级封锁协议 =&gt; 读已提交隔离级别 - 三级封锁协议 =&gt; 可重复读隔离级别</p>
+<p>通过定义我们貌似可以发现，封锁协议和数据库隔离级别<strong>看似</strong>有如下对应关系：</p>
+<ul>
+<li>二级封锁协议 =&gt; 读已提交隔离级别</li>
+<li>三级封锁协议 =&gt; 可重复读隔离级别</li>
+</ul>
 <p><strong>但实际上并不存在对应关系</strong> 根本原因出现在封锁协议中的<strong>在数据修改前加锁</strong>，指的是<code>Read(A)</code>和<code>Write(A)</code>绑定在一起考虑，虽然具体的修改操作发生在<code>Write(A)</code>时，但是在<code>Read(A)</code>的时候就要加上写锁。而数据库的隔离级别不会提前加锁。 另外两者的主体也是不一样的，在隔离层级策略下会出现锁升级的情况（这其实也是因为数据库无法知道操作者接下来的操作是什么导致的，如果知道可能在一开始就会加上写锁保护）。</p>
 <h2 id="一些额外的问题">一些额外的问题</h2>
 <h3 id="为什么封锁协议和隔离级别看着定义一样实际效果却不同">为什么封锁协议和隔离级别看着定义一样，实际效果却不同？</h3>
-<p>在封锁协议中<strong>Read(A)和Write(A)要绑定认为是一个写操作，开始就要加写锁</strong>， 对于之前提到的四种数据一致性问题，我们可以发现， - 一级封锁协议<del>什么都不能保证</del> 保证不丢失修改 - 二级封锁协议可以保证不读脏数据 也保证不丢失修改 - 三级封锁协议则可以保证不读脏数据，可重复读，不丢失修改，<del>但是不能解决幻读</del></p>
+<p>在封锁协议中<strong>Read(A)和Write(A)要绑定认为是一个写操作，开始就要加写锁</strong>， 对于之前提到的四种数据一致性问题，我们可以发现：</p>
+<ul>
+<li>一级封锁协议<del>什么都不能保证</del> 保证不丢失修改</li>
+<li>二级封锁协议可以保证不读脏数据 也保证不丢失修改</li>
+<li>三级封锁协议则可以保证不读脏数据，可重复读，不丢失修改，<del>但是不能解决幻读</del></li>
+</ul>
 <p>对于一二级封锁协议的反例如下: <img src="/posts/28475/5d745f01.png" alt="5d745f01.png"> <strong>而这个反例也是不存在的</strong>，因为封锁协议要求T1在<code>Read(A)</code>的时候就要加写锁。</p>
 <h3 id="part-2">Part 2</h3>
 <p>此外由于存在幻读现象，那么三级封锁协议和两阶段封锁协议是否还是可串行化的？</p>
@@ -45,7 +109,10 @@
 <p>封锁协议之间的包含关系？ <img src="/posts/28475/e23f91e5.png" alt="e23f91e5.png"></p>
 <h2 id="参考资料">参考资料</h2>
 <blockquote>
-<p><a href="https://en.wikipedia.org/wiki/Isolation_(database_systems)" target="_blank" rel="noopener">Isolation (database systems) - Wikipedia</a> <a href="https://baike.baidu.com/item/%E4%B8%89%E7%BA%A7%E5%8A%A0%E9%94%81%E5%8D%8F%E8%AE%AE/1148391" target="_blank" rel="noopener">三级加锁协议_百度百科</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Isolation_(database_systems)" target="_blank" rel="noopener">Isolation (database systems) - Wikipedia</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://baike.baidu.com/item/%E4%B8%89%E7%BA%A7%E5%8A%A0%E9%94%81%E5%8D%8F%E8%AE%AE/1148391" target="_blank" rel="noopener">三级加锁协议_百度百科</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -270,8 +337,8 @@
         <category>opencv</category>
       </categories>
       <tags>
-        <tag>opencv</tag>
         <tag>ubuntu</tag>
+        <tag>opencv</tag>
       </tags>
   </entry>
   <entry>
