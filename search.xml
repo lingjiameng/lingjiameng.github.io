@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>饥荒联机版服务器搭建教程2020版</title>
+    <url>/posts/11894/</url>
+    <content><![CDATA[<p>此教程意在搭建一个有mod的服务器</p>
+<a id="more"></a>
+<h2 id="服务器搭建">服务器搭建</h2>
+<h3 id="获取服务器运行工具">获取服务器运行工具</h3>
+<p>购买正版饥荒游戏后，会附带一个搭建服务器的工具<code>Don't Starve Together Dedicated Server</code>，在Steam库中选择工具即可找到，下载并安装即可。</p>
+<h3 id="获取服务器配置和token">获取服务器配置和token</h3>
+<p>接下来要获取服务器配置和token，首先从Steam启动<code>Don't Starve Together</code>。打开下图中指出的账户界面，第一次打开需要注册并登陆<code>Keli</code>的账号。</p>
+<figure>
+<img src="/posts/11894/main_menu_account_button.thumb.jpg.369fefac935a21acb389eb73fe06946a.jpg" alt><figcaption>main_menu_account_button.jpg</figcaption>
+</figure>
+<p>绑定完成后，注意先要邮箱激活账号，之后打开<a href="https://accounts.klei.com/account/game/list" target="_blank" rel="noopener">链接</a></p>
+<figure>
+<img src="/posts/11894/image-20200625181007766.png" alt><figcaption>image-20200625181007766</figcaption>
+</figure>
+<p>点击上图中的<code>饥荒联机版的游戏服务器</code>，之后就可以<code>创建或配置服务器</code>，配置完成后点击<code>下载设置</code>下载配置文件到本地。其中最关键的是申请<code>服务器票据</code>，会被存储在<code>cluster_token.txt</code>中。同时要记住这里的服务器名字，通过搜索该名字可以加入服务器。</p>
+<p>将压缩包解压，并将文件夹<code>MyDediServer</code> 放到目录<code>文档\Klei\DoNotStarveTogether\</code>下。</p>
+<h3 id="启动服务器">启动服务器</h3>
+<p>进入目录<code>\steam\SteamApps\common\Don't Starve Together Dedicated Server\bin</code>创建文本文档，并改名为<code>startDST.bat</code>。将如下内容复制进其中</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">start dontstarve_dedicated_server_nullrenderer <span class="literal">-console</span> <span class="literal">-cluster</span> MyDediServer <span class="literal">-shard</span> Master</span><br><span class="line">start dontstarve_dedicated_server_nullrenderer <span class="literal">-console</span> <span class="literal">-cluster</span> MyDediServer <span class="literal">-shard</span> Caves</span><br></pre></td></tr></table></figure>
+<p>双击<code>start.bat</code> 即可成功启动服务器</p>
+<h2 id="服务器添加mod">服务器添加mod</h2>
+<h2 id="服务器存档迁移">服务器存档迁移</h2>
+<h2 id="主要参考资料">主要参考资料</h2>
+]]></content>
+      <categories>
+        <category>game</category>
+      </categories>
+      <tags>
+        <tag>game</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>封锁协议 和 数据库的隔离级别</title>
     <url>/posts/28475/</url>
     <content><![CDATA[<p>本文回答下面的问题：</p>
@@ -1468,8 +1502,9 @@ a &amp;= b + c \\
 </ol>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ git checkout -- &lt;file&gt; <span class="comment">#恢复删除的文件</span></span><br></pre></td></tr></table></figure>
 <h3 id="添加远程仓库">添加远程仓库</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git remote add origin &lt;url&#x2F;ssh link&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote add origin &lt;url/ssh link&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="分支管理">分支管理</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch --list <span class="comment">#列出本地所有分支</span></span><br><span class="line">$ git branch -a <span class="comment"># 列出本地分支和远程分支，远程分支会以remote/开头</span></span><br><span class="line">$ git branch -b dev origin/branch_name <span class="comment">#本地创建分支dev并把远程分支branch_name拉取到本地</span></span><br></pre></td></tr></table></figure>
 <p>待补充</p>
 <p>工作区，暂存区，版本库，远程版本库</p>
 <h2 id="git安装">git安装</h2>
