@@ -1504,9 +1504,11 @@ a &amp;= b + c \\
 <h3 id="添加远程仓库">添加远程仓库</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote add origin &lt;url/ssh link&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="分支管理">分支管理</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch --list <span class="comment">#列出本地所有分支</span></span><br><span class="line">$ git branch -a <span class="comment"># 列出本地分支和远程分支，远程分支会以remote/开头</span></span><br><span class="line">$ git branch -b dev origin/branch_name <span class="comment">#本地创建分支dev并把远程分支branch_name拉取到本地</span></span><br></pre></td></tr></table></figure>
-<p>待补充</p>
-<p>工作区，暂存区，版本库，远程版本库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch --list <span class="comment">#列出本地所有分支</span></span><br><span class="line">$ git checkout -b dev <span class="comment">#(创建并)切换到dev分支</span></span><br><span class="line">$ git branch -a <span class="comment"># 列出本地分支和远程分支，远程分支会以remote/开头</span></span><br><span class="line">$ git branch -b dev origin/branch_name <span class="comment">#本地创建分支dev并把远程分支branch_name拉取到本地</span></span><br><span class="line">$ git push -u origin dev_local:dev_remote <span class="comment">#本地分支dev_local推送到远程分支dev_remote</span></span><br></pre></td></tr></table></figure>
+<h3 id="清除本地缓存">清除本地缓存</h3>
+<p>主要是用于解决<code>.gitignore</code>不生效的问题</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .  <span class="comment">#删除本地所有缓存的索引，从而解除对.gitignore指定的文件的跟踪</span></span><br></pre></td></tr></table></figure>
+<p>另外一种可能是<strong>文件编码</strong>问题，改为<code>UTF-8</code>最为合适，不要是<code>UTF-16</code>等奇怪的编码。</p>
 <h2 id="git安装">git安装</h2>
 <ul>
 <li>System: windows10</li>
