@@ -5,7 +5,7 @@
     <url>/posts/11894/</url>
     <content><![CDATA[<p>此教程意在搭建一个有mod的服务器</p>
 <a id="more"></a>
-<h2 id="服务器搭建">服务器搭建</h2>
+<h2 id="服务器搭建12">服务器搭建<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></h2>
 <h3 id="获取服务器运行工具">获取服务器运行工具</h3>
 <p>购买正版饥荒游戏后，会附带一个搭建服务器的工具<code>Don't Starve Together Dedicated Server</code>，在Steam库中选择工具即可找到，下载并安装即可。</p>
 <h3 id="获取服务器配置和token">获取服务器配置和token</h3>
@@ -26,6 +26,13 @@
 <h2 id="服务器添加mod">服务器添加mod</h2>
 <h2 id="服务器存档迁移">服务器存档迁移</h2>
 <h2 id="主要参考资料">主要参考资料</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p>官方搭建服务器教程 <a href="https://forums.kleientertainment.com/forums/topic/64212-dedicated-server-quick-setup-guide-windows/" target="_blank" rel="noopener">Windows</a>, <a href="https://forums.kleientertainment.com/forums/topic/64441-dedicated-server-quick-setup-guide-linux/" target="_blank" rel="noopener">linux</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://www.jianshu.com/p/440d64cd3ac4" target="_blank" rel="noopener">饥荒联机版服务器搭建教程</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 ]]></content>
       <categories>
         <category>game</category>
@@ -1920,8 +1927,10 @@ a &amp;= b + c\\
 <h3 id="hexo内置标签与标记">Hexo内置标签与标记</h3>
 <h4 id="居中引用">居中引用</h4>
 <blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
             <p>Less is More</p>
 
+            <i class="fa fa-quote-right"></i>
           </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% cq %&#125;Less is More&#123;% endcq %&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="next自带tag">NexT自带tag</h4>
