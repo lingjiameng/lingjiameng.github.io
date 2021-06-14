@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"ljmeng.site","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="安装  conda install tensorflow  基本使用  使用图 (graph) 来表示计算任务.1 在被称之为 会话 (Session) 的上下文 (context) 中执行图. 使用 tensor(张量) 表示数据. 通过 变量 (Variable) 维护状态. 使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或">
+  <meta name="description" content="安装  conda install tensorflow  基本使用  使用图 (graph) 来表示计算任务.1 在被称之为 会话 (Session) 的上下文 (context) 中执行图. 使用 tensor(张量) 表示数据. 通过 变量 (Variable) 维护状态. 使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow学习笔记01">
-<meta property="og:url" content="http:&#x2F;&#x2F;ljmeng.site&#x2F;posts&#x2F;39707&#x2F;">
+<meta property="og:url" content="http://ljmeng.site/posts/39707/">
 <meta property="og:site_name" content="ljmeng的个人小站">
-<meta property="og:description" content="安装  conda install tensorflow  基本使用  使用图 (graph) 来表示计算任务.1 在被称之为 会话 (Session) 的上下文 (context) 中执行图. 使用 tensor(张量) 表示数据. 通过 变量 (Variable) 维护状态. 使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或">
+<meta property="og:description" content="安装  conda install tensorflow  基本使用  使用图 (graph) 来表示计算任务.1 在被称之为 会话 (Session) 的上下文 (context) 中执行图. 使用 tensor(张量) 表示数据. 通过 变量 (Variable) 维护状态. 使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-01-17T13:00:46.000Z">
-<meta property="article:modified_time" content="2019-12-17T09:00:04.664Z">
+<meta property="article:modified_time" content="2019-01-17T13:00:46.000Z">
 <meta property="article:author" content="Lingjia Meng">
 <meta property="article:tag" content="tf">
 <meta name="twitter:card" content="summary">
@@ -199,13 +199,6 @@
 
               <time title="创建时间：2019-01-17 21:00:46" itemprop="dateCreated datePublished" datetime="2019-01-17T21:00:46+08:00">2019-01-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-17 17:00:04" itemprop="dateModified" datetime="2019-12-17T17:00:04+08:00">2019-12-17</time>
-              </span>
 
           
             <span id="/posts/39707/" class="post-meta-item leancloud_visitors" data-flag-title="TensorFlow学习笔记01" title="阅读次数">
@@ -253,7 +246,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="安装">安装</h2>
+        <html><head></head><body><h2 id="安装">安装</h2>
 <ul>
 <li><code>conda install tensorflow</code></li>
 </ul>
@@ -265,24 +258,24 @@
 <li>通过 <code>变量 (Variable)</code> 维护状态.</li>
 <li>使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="综述">综述</h2>
 <ul>
 <li>以图为核心 ， 节点为op</li>
 <li>图必须在 <code>会话</code> 里被启动</li>
 <li>构建阶段, op 的执行步骤 被描述成一个图. 在执行阶段, 使用会话执行执行图中的 op</li>
 </ul>
-<h2 id="example-一个图的例子"><a href="http://www.tensorfly.cn/tfdoc/get_started/basic_usage.html" target="_blank" rel="noopener">example</a> 一个图的例子</h2>
+<h2 id="example-一个图的例子"><a target="_blank" rel="noopener" href="http://www.tensorfly.cn/tfdoc/get_started/basic_usage.html">example</a> 一个图的例子</h2>
 <ol type="1">
 <li><p>构建图</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个常量 op, 产生一个 1x2 矩阵. 这个 op 被作为一个节点</span></span><br><span class="line"><span class="comment"># 加到默认图中.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 构造器的返回值代表该常量 op 的返回值.</span></span><br><span class="line">matrix1 = tf.constant([[<span class="number">3.</span>, <span class="number">3.</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建另外一个常量 op, 产生一个 2x1 矩阵.</span></span><br><span class="line">matrix2 = tf.constant([[<span class="number">2.</span>],[<span class="number">2.</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个矩阵乘法 matmul op , 把 'matrix1' 和 'matrix2' 作为输入.</span></span><br><span class="line"><span class="comment"># 返回值 'product' 代表矩阵乘法的结果.</span></span><br><span class="line">product = tf.matmul(matrix1, matrix2)</span><br></pre></td></tr></table></figure></p></li>
+<p></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个常量 op, 产生一个 1x2 矩阵. 这个 op 被作为一个节点</span></span><br><span class="line"><span class="comment"># 加到默认图中.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 构造器的返回值代表该常量 op 的返回值.</span></span><br><span class="line">matrix1 = tf.constant([[<span class="number">3.</span>, <span class="number">3.</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建另外一个常量 op, 产生一个 2x1 矩阵.</span></span><br><span class="line">matrix2 = tf.constant([[<span class="number">2.</span>],[<span class="number">2.</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个矩阵乘法 matmul op , 把 'matrix1' 和 'matrix2' 作为输入.</span></span><br><span class="line"><span class="comment"># 返回值 'product' 代表矩阵乘法的结果.</span></span><br><span class="line">product = tf.matmul(matrix1, matrix2)</span><br></pre></td></tr></tbody></table></figure><p></p></li>
 <li><p>启动图</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动默认图.</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用 sess 的 'run()' 方法来执行矩阵乘法 op, 传入 'product' 作为该方法的参数. </span></span><br><span class="line"><span class="comment"># 上面提到, 'product' 代表了矩阵乘法 op 的输出, 传入它是向方法表明, 我们希望取回</span></span><br><span class="line"><span class="comment"># 矩阵乘法 op 的输出.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 整个执行过程是自动化的, 会话负责传递 op 所需的全部输入. op 通常是并发执行的.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 函数调用 'run(product)' 触发了图中三个 op (两个常量 op 和一个矩阵乘法 op) 的执行.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 返回值 'result' 是一个 numpy `ndarray` 对象.</span></span><br><span class="line">result = sess.run(product)</span><br><span class="line"><span class="keyword">print</span> result</span><br><span class="line"><span class="comment"># ==&gt; [[ 12.]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务完成, 关闭会话.</span></span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure></p>
+<p></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动默认图.</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用 sess 的 'run()' 方法来执行矩阵乘法 op, 传入 'product' 作为该方法的参数. </span></span><br><span class="line"><span class="comment"># 上面提到, 'product' 代表了矩阵乘法 op 的输出, 传入它是向方法表明, 我们希望取回</span></span><br><span class="line"><span class="comment"># 矩阵乘法 op 的输出.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 整个执行过程是自动化的, 会话负责传递 op 所需的全部输入. op 通常是并发执行的.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 函数调用 'run(product)' 触发了图中三个 op (两个常量 op 和一个矩阵乘法 op) 的执行.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 返回值 'result' 是一个 numpy `ndarray` 对象.</span></span><br><span class="line">result = sess.run(product)</span><br><span class="line"><span class="built_in">print</span> result</span><br><span class="line"><span class="comment"># ==&gt; [[ 12.]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务完成, 关闭会话.</span></span><br><span class="line">sess.close()</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>使用with来使Session对象启动完后自动关闭以释放资源</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  result = sess.run([product])</span><br><span class="line">  <span class="keyword">print</span> result</span><br></pre></td></tr></table></figure></p></li>
+<p></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  result = sess.run([product])</span><br><span class="line">  <span class="built_in">print</span> result</span><br></pre></td></tr></tbody></table></figure><p></p></li>
 <li><p>交互式使用</p>
-<p>为了便于使用诸如 <a href="http://ipython.org/" target="_blank" rel="noopener">IPython</a> 之类的 Python 交互环境, 可以使用 <a href="http://www.tensorfly.cn/tfdoc/api_docs/python/client.html#InteractiveSession" target="_blank" rel="noopener"><code>InteractiveSession</code></a> 代替 <code>Session</code>类, 使用 <a href="http://www.tensorfly.cn/tfdoc/api_docs/python/framework.html#Tensor.eval" target="_blank" rel="noopener"><code>Tensor.eval()</code></a> 和 <a href="http://www.tensorfly.cn/tfdoc/api_docs/python/framework.html#Operation.run" target="_blank" rel="noopener"><code>Operation.run()</code></a> 方法代替 <code>Session.run()</code></p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入一个交互式 TensorFlow 会话.</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">sess = tf.InteractiveSession()</span><br><span class="line"></span><br><span class="line">x = tf.Variable([<span class="number">1.0</span>, <span class="number">2.0</span>])</span><br><span class="line">a = tf.constant([<span class="number">3.0</span>, <span class="number">3.0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用初始化器 initializer op 的 run() 方法初始化 'x' </span></span><br><span class="line">x.initializer.run()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加一个减法 sub op, 从 'x' 减去 'a'. 运行减法 op, 输出结果 </span></span><br><span class="line">sub = tf.sub(x, a)</span><br><span class="line"><span class="keyword">print</span> sub.eval()</span><br><span class="line"><span class="comment"># ==&gt; [-2. -1.]</span></span><br></pre></td></tr></table></figure></p></li>
+<p>为了便于使用诸如 <a target="_blank" rel="noopener" href="http://ipython.org/">IPython</a> 之类的 Python 交互环境, 可以使用 <a target="_blank" rel="noopener" href="http://www.tensorfly.cn/tfdoc/api_docs/python/client.html#InteractiveSession"><code>InteractiveSession</code></a> 代替 <code>Session</code>类, 使用 <a target="_blank" rel="noopener" href="http://www.tensorfly.cn/tfdoc/api_docs/python/framework.html#Tensor.eval"><code>Tensor.eval()</code></a> 和 <a target="_blank" rel="noopener" href="http://www.tensorfly.cn/tfdoc/api_docs/python/framework.html#Operation.run"><code>Operation.run()</code></a> 方法代替 <code>Session.run()</code></p>
+<p></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入一个交互式 TensorFlow 会话.</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">sess = tf.InteractiveSession()</span><br><span class="line"></span><br><span class="line">x = tf.Variable([<span class="number">1.0</span>, <span class="number">2.0</span>])</span><br><span class="line">a = tf.constant([<span class="number">3.0</span>, <span class="number">3.0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用初始化器 initializer op 的 run() 方法初始化 'x' </span></span><br><span class="line">x.initializer.run()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加一个减法 sub op, 从 'x' 减去 'a'. 运行减法 op, 输出结果 </span></span><br><span class="line">sub = tf.sub(x, a)</span><br><span class="line"><span class="built_in">print</span> sub.<span class="built_in">eval</span>()</span><br><span class="line"><span class="comment"># ==&gt; [-2. -1.]</span></span><br></pre></td></tr></tbody></table></figure><p></p></li>
 </ol>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -290,7 +283,7 @@
 <li id="fn1" role="doc-endnote"><p>本文基于tensorflow中文网<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
-
+</body></html>
     </div>
 
     
@@ -382,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">2.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">3.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-一个图的例子"><span class="nav-number">4.</span> <span class="nav-text">example 一个图的例子</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%BC%E8%BF%B0"><span class="nav-number">3.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-%E4%B8%80%E4%B8%AA%E5%9B%BE%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">4.</span> <span class="nav-text">example 一个图的例子</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -478,7 +471,7 @@ show_date_time();
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -487,7 +480,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">84k</span>
+    <span title="站点总字数">80k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
