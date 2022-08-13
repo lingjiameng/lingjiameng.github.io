@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ljmeng.site","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文解决md数学公式渲染以及图片路径问题，并包含一些有用命令和个性化技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客搭建与个性化">
+<meta property="og:url" content="http://ljmeng.site/posts/2864/">
+<meta property="og:site_name" content="ljmeng的个人小站">
+<meta property="og:description" content="本文解决md数学公式渲染以及图片路径问题，并包含一些有用命令和个性化技巧">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://ljmeng.site/posts/2864/1551840506632.png">
+<meta property="article:published_time" content="2019-01-14T04:00:00.000Z">
+<meta property="article:modified_time" content="2019-01-14T04:00:00.000Z">
+<meta property="article:author" content="Lingjia Meng">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ljmeng.site/posts/2864/1551840506632.png">
+
+<link rel="canonical" href="http://ljmeng.site/posts/2864/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hexo博客搭建与个性化 | ljmeng的个人小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="ljmeng的个人小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ljmeng的个人小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Less is More</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-lab">
+
+    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>lab</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://ljmeng.site/posts/2864/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/s0mE.jpg">
+      <meta itemprop="name" content="Lingjia Meng">
+      <meta itemprop="description" content="Less is More">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ljmeng的个人小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客搭建与个性化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-14 12:00:00" itemprop="dateCreated datePublished" datetime="2019-01-14T12:00:00+08:00">2019-01-14</time>
+            </span>
+
+          
+            <span id="/posts/2864/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建与个性化" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/2864/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/2864/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <html><head></head><body><p><img src="/posts/2864/1551840506632.png"></p>
+<p>本文解决md数学公式渲染以及图片路径问题，并包含一些有用命令和个性化技巧</p>
+<span id="more"></span>
+<h2 id="安装">安装</h2>
+<ul>
+<li>details in this <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a39573555039">site</a></li>
+</ul>
+<h2 id="解决md数学公式渲染问题">解决md数学公式渲染问题</h2>
+<p><span id="inline-blue">更新于2019-03-10，标记错误做法</span></p>
+<h3 id="采坑记录">采坑记录</h3>
+<p>如下方法，虽然能使公式得到部分正确渲染，但是在markdown渲染表格时出现了很大的问题，表格中的<code>|</code>无法用反斜线转义。导致表格错位。同时公式渲染也存在bug, 例如<code>_</code>不能正确渲染。</p>
+<p><strong>如下为错误做法</strong></p>
+<p>1.在blog根目录输入如下指令 </p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-kramed --save</span><br></pre></td></tr></tbody></table></figure> 2.然后修改文件<p></p>
+<figure class="highlight js"><figcaption><span>文件位置：node_modules\kramed\lib\rules\inline.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  escape: /^\\([\\`*{}\[\]()#$+\-.!_&gt;])/,</span></span><br><span class="line"><span class="attr">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span></span><br><span class="line"><span class="comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span></span><br><span class="line"><span class="attr">em</span>: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="正确做法"><span id="inline-blue">正确做法</span></h3>
+<p>使用 <code>hexo-render-pandoc</code>, 步骤如下</p>
+<p>1.安装配置<code>hexo-render-pandoc</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line"><span class="comment">#or npm un hexo-renderer-kramed --save (如果安装的是kramed的话)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在安装之前，建议先删除node_modules文件夹下所有文件</span></span><br><span class="line"><span class="comment"># 并运行命令 npm install</span></span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-pandoc --save</span><br></pre></td></tr></tbody></table></figure>
+<p>前去官网安装pandoc，并保证能在命令行中运行 <code>pandoc -v</code>.</p>
+<p>2.主题打开<code>mathjax</code>开关</p>
+<figure class="highlight yaml"><figcaption><span>文件位置：themes/next/_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MathJax Support</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>3.文章的Front-matter里打开mathjax开关(一定要打开，不然不会渲染)</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: index.html</span><br><span class="line">date: 2016-12-28 21:01:30</span><br><span class="line">tags:</span><br><span class="line"><span class="section">mathjax: true</span></span><br><span class="line"><span class="section">--</span></span><br></pre></td></tr></tbody></table></figure>
+<p>至此可以完美渲染公式</p>
+<h3 id="例子">例子</h3>
+<p>示例一</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>{equation}</span><br><span class="line"><span class="keyword">\begin</span>{aligned}</span><br><span class="line">a <span class="built_in">&amp;</span>= b + c <span class="keyword">\\</span></span><br><span class="line">  <span class="built_in">&amp;</span>= d + e + f + g <span class="keyword">\\</span></span><br><span class="line">  <span class="built_in">&amp;</span>= h + i</span><br><span class="line"><span class="keyword">\end</span>{aligned}</span><br><span class="line"><span class="keyword">\end</span>{equation}<span class="keyword">\label</span>{eq2}<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+a &amp;= b + c\\
+ &amp;= d+ e+f+g\\
+ &amp;= h+i
+\end{aligned}
+\end{equation}
+\]</span></p>
+<p>示例二 </p><figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span>state <span class="keyword">\overset</span>{NN}{<span class="keyword">\rightarrow</span>}<span class="keyword">\left</span><span class="keyword">\{</span> <span class="keyword">\begin</span>{aligned} <span class="built_in">&amp;</span>action1 <span class="keyword">\_</span> value <span class="keyword">\\</span> <span class="built_in">&amp;</span>action2 <span class="keyword">\_</span> value <span class="keyword">\\</span> <span class="built_in">&amp;</span>...<span class="keyword">\end</span>{aligned} <span class="keyword">\right</span>.<span class="built_in">$</span></span><br></pre></td></tr></tbody></table></figure> <span class="math inline">\(state \overset{NN}{\rightarrow}\left\{ \begin{aligned} &amp;action1 \_ value \\ &amp;action2 \_ value \\ &amp;...\end{aligned} \right.\)</span><p></p>
+<p>示例三</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">When <span class="built_in">$</span>a <span class="keyword">\ne</span> 0<span class="built_in">$</span>, there are two solutions to <span class="keyword">\(</span>ax<span class="built_in">^</span>2 + bx + c = 0<span class="keyword">\)</span> and they are</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span>x = {-b <span class="keyword">\pm</span> <span class="keyword">\sqrt</span>{b<span class="built_in">^</span>2-4ac} <span class="keyword">\over</span> 2a}.<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></tbody></table></figure>
+<p>When <span class="math inline">\(a \ne 0\)</span>, there are two solutions to (ax^2 + bx + c = 0) and they are <span class="math display">\[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]</span></p>
+<h2 id="解决md图片路径问题">解决md图片路径问题</h2>
+<p>通过插件<code>hexo-asset-image</code>进行图片路径转换即可解决</p>
+<h3 id="安装插件">安装插件</h3>
+<p><code>npm install hexo-asset-image --save</code></p>
+<h3 id="修改配置文件">修改配置文件</h3>
+<p>将主题配置文件<code>_config.yml</code>中设定修改为 <code>post_asset_folder: true</code></p>
+<p>打开此设定后，Hexo新建文章时会自动在同级目录中创建一个同名文件夹，用于放图片等资源</p>
+<h3 id="使用">使用</h3>
+<p>1.将图片放入与文章同名的文件夹下</p>
+<p>2.用相对路径在md文件引用图片</p>
+<h3 id="例子-1">例子</h3>
+<figure class="highlight plaintext"><figcaption><span>[目录结构]</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">post</span><br><span class="line">├── apppicker.jpg</span><br><span class="line">├── logo.jpg</span><br><span class="line">└── rules.jpg</span><br><span class="line">post.md</span><br></pre></td></tr></tbody></table></figure>
+<p>在文章中添加<code>![logo](./post/logo.jpg)</code>即可</p>
+<h3 id="注意事项">注意事项</h3>
+<p>在安装或卸载其他插件后，此插件可能会被误伤删除。</p>
+<p>因此出现图片出错情况不要急，再运行一遍安装命令就正常了。</p>
+<h2 id="常用命令">常用命令</h2>
+<p>(全部在根目录下执行)，并且要在 <code>git bash</code>中执行</p>
+<p>1.<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code> 一次性执行了，清空、刷新、部署三个命令，写完博客后执行此命令即可发布新博客</p>
+<p>2.备份整个博客到github<code>git add * &amp;&amp; git commit -m 'update hexo' &amp;&amp; git push origin hexo</code>，暂存，提交和推送到github三个命令</p>
+<p>3.自定义命令如下</p>
+<figure class="highlight bash"><figcaption><span>注意事项:要在Git bash中运行</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建文件以自定义bash环境</span></span><br><span class="line"><span class="built_in">touch</span> ~/.bashrc</span><br><span class="line"><span class="built_in">touch</span> ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将设定导入文件中</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'alias hexogo="hexo clean &amp;&amp; hexo g &amp;&amp; hexo d"'</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'alias hexotest="hexo clean &amp;&amp; hexo g &amp;&amp; hexo s"'</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'alias hexogit="git add * &amp;&amp; git commit -m \"update hexo\" &amp;&amp; git push origin hexo"'</span> &gt;&gt; ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#使设定在立即生效</span></span><br><span class="line">. ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#之后只需三条命令</span></span><br><span class="line"><span class="comment"># 发布 hexogo</span></span><br><span class="line"><span class="comment"># 测试 hexotest</span></span><br><span class="line"><span class="comment"># 备份hexo项目 hexogit</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="hexo在ubuntu18.04-运行">hexo在Ubuntu18.04 运行</h2>
+<p>1.<a target="_blank" rel="noopener" href="https://blog.csdn.net/fabulous1111/article/details/84983869">安装node7.0.0</a></p>
+<p>2.安装hexo:<code>npm install hexo-cli -g</code></p>
+<p>3.同步blog仓库，注意目录结构，可参考<a target="_blank" rel="noopener" href="https://github.com/lingjiameng/lingjiameng.github.io/tree/winhexo">我的仓库</a>, 记得删除主题的<code>.git</code>,<code>.git*</code></p>
+<p>4.运行<code>npm install</code>, 若安装无报错即可正常运行</p>
+<p>5.<code>mozjepg</code>安装出错解决办法如下</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install autoconf libtool pkg-config nasm build-essential</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo apt-get -y install build-essential cmake libtool autoconf automake m4 nasm pkg-config</span><br><span class="line">sudo ldconfig /usr/lib</span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">wget https://github.com/mozilla/mozjpeg/archive/v3.1.tar.gz</span><br><span class="line">tar -xvzf v3.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mozjpeg-3.1/</span><br><span class="line">autoreconf -fiv</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">sh ../configure</span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="常用设置与技巧">常用设置与技巧</h2>
+<p>这里记录了一些简单设置和技巧</p>
+<h3 id="hexo内置标签与标记">Hexo内置标签与标记</h3>
+<h4 id="居中引用">居中引用</h4>
+<blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
+            <p>Less is More</p>
+
+            <i class="fa fa-quote-right"></i>
+          </blockquote>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% cq %}<span class="title class_">Less</span> is <span class="title class_">More</span>{% endcq %}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="next自带tag">NexT自带tag</h4>
+<p><a target="_blank" rel="noopener" href="https://theme-next.org/docs/tag-plugins/">详细介绍</a></p>
+<p>1.note</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">{% note [<span class="keyword">class</span>] [no-icon] %}</span><br><span class="line"><span class="title class_">Any</span> content (support inline tags too.<span class="property">io</span>).</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">[<span class="keyword">class</span>]   : <span class="keyword">default</span> | primary | success | info | warning | danger.</span><br><span class="line">[no-icon] : <span class="title class_">Disable</span> icon <span class="keyword">in</span> note.</span><br><span class="line"></span><br><span class="line"><span class="title class_">All</span> parameters are optional.</span><br></pre></td></tr></tbody></table></figure>
+<p>2.button</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">{% button url, text, icon [<span class="keyword">class</span>], [title] %}</span><br><span class="line">&lt;!-- <span class="title class_">Tag</span> <span class="title class_">Alias</span> --&gt;</span><br><span class="line">{% btn url, text, icon [<span class="keyword">class</span>], [title] %}</span><br><span class="line"></span><br><span class="line">url     : <span class="title class_">Absolute</span> or relative path to <span class="variable constant_">URL</span>.</span><br><span class="line">text    : <span class="title class_">Button</span> text. <span class="title class_">Required</span> <span class="keyword">if</span> no icon specified.</span><br><span class="line">icon    : <span class="title class_">FontAwesome</span> icon name (without <span class="string">'fa-'</span> at the begining). <span class="title class_">Required</span> <span class="keyword">if</span> no text specified.</span><br><span class="line">[<span class="keyword">class</span>] : <span class="title class_">FontAwesome</span> <span class="title function_">class</span>(es): fa-fw | fa-lg | fa-2x | fa-3x | fa-4x | fa-5x</span><br><span class="line">          <span class="title class_">Optional</span> parameter.</span><br><span class="line">[title] : <span class="title class_">Tooltip</span> at mouseover.</span><br><span class="line">          <span class="title class_">Optional</span> parameter.</span><br></pre></td></tr></tbody></table></figure>
+<p>3.label</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{% label [<span class="keyword">class</span>]@<span class="title class_">Text</span> %}</span><br><span class="line"></span><br><span class="line">[<span class="keyword">class</span>] : <span class="keyword">default</span> | primary | success | info | warning | danger.</span><br><span class="line">          <span class="string">'@Text'</span> can be specified <span class="keyword">with</span> or without space</span><br><span class="line">          E.<span class="property">g</span>. <span class="string">'success @text'</span> similar to <span class="string">'success@text'</span>.</span><br><span class="line">          <span class="title class_">If</span> not specified, <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">will</span> be selected.</span><br></pre></td></tr></tbody></table></figure>
+<p>4.video</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% video url %}</span><br></pre></td></tr></tbody></table></figure>
+<p>5.pdf</p>
+<p>Settings </p><figure class="highlight yml"><figcaption><span>next/_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pdf:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Default height</span></span><br><span class="line">  <span class="attr">height:</span> <span class="string">500px</span></span><br><span class="line">  <span class="attr">pdfobject:</span></span><br><span class="line">    <span class="comment"># Use 2.1.1 as default, jsdelivr as default CDN, works everywhere even in China</span></span><br><span class="line">    <span class="attr">cdn:</span> <span class="string">//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js</span></span><br><span class="line">    <span class="comment"># CDNJS, provided by cloudflare, maybe the best CDN, but not works in China</span></span><br><span class="line">    <span class="comment">#cdn: //cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js</span></span><br></pre></td></tr></tbody></table></figure> Usage<p></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{% pdf url [height] %}</span><br><span class="line"></span><br><span class="line">[url]    : <span class="title class_">Relative</span> path to <span class="variable constant_">PDF</span> file.</span><br><span class="line">[height] : <span class="title class_">Optional</span>. <span class="title class_">Height</span> <span class="keyword">of</span> the <span class="variable constant_">PDF</span> display element, e.<span class="property">g</span>. 800px.</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="文章摘要">文章摘要</h3>
+<p>在摘要后添加<code>&lt;!-- more --&gt;</code>， 即可设置前半部分加入摘要，产生阅读原文选项</p>
+<h3 id="版权信息">版权信息</h3>
+<p>在主题文件<code>themes/next/_config.yml</code>找到<code>copyright</code>选项并打开</p>
+<h3 id="文章结束标签">文章结束标签</h3>
+<p>1.在<code>next/_macro</code>添加文件<code>passage-end-tag.swig</code>,内容如下</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{% if theme.passage_end_tag.enabled %}</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;</span></span><br><span class="line">    ------ 本文结束，感谢您的阅读 ------<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">{% endif %}</span><br></pre></td></tr></tbody></table></figure>
+<p>2.在<code>next/_macro/post.swig</code>添加如下语句</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">{#####################}</span><br><span class="line">{### END POST BODY ###}</span><br><span class="line">{#####################}</span><br><span class="line"></span><br><span class="line">{% if not is_index %}</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    {% include 'passage-end-tag.swig' %}</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">{% endif %}</span><br></pre></td></tr></tbody></table></figure>
+<p>3.在<code>next\_config.yml</code>添加如下语句</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passage_end_tag:</span><br><span class="line">  enabled: true</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="增加网站地图入口">增加网站地图入口</h3>
+<p>在<code>next/_partials/footer.swig</code> 增加网站地图入口</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"copyright"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>|<span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/sitemap.xml"</span>&gt;</span>网站地图<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br></pre></td></tr></tbody></table></figure>
+<h3 id="为标题增加序号">为标题增加序号</h3>
+<p>使用<code>hexo-heading-index</code>插件</p>
+<h4 id="安装-1">安装</h4>
+<p>·<code>npm install hexo-heading-index --save</code></p>
+<h4 id="配置">配置</h4>
+<figure class="highlight yml"><figcaption><span>文件位置:_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">heading_index:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">index_styles:</span> <span class="string">"{1} {1} {1} {1} {1} {1}"</span></span><br><span class="line">  <span class="attr">connector:</span> <span class="string">"."</span></span><br><span class="line">  <span class="attr">global_prefix:</span> <span class="string">""</span></span><br><span class="line">  <span class="attr">global_suffix:</span> <span class="string">". "</span></span><br><span class="line"><span class="comment"># 这个配置会生成1.2.3.4.的序号</span></span><br></pre></td></tr></tbody></table></figure>
+<p>序号命名规则如下</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;全局前缀 (global_prefix)&gt;&lt;h1序号&gt;[&lt;连接符 (connector)&gt;&lt;h2序号&gt;&lt;连接符 (connector)&gt;...&lt;h6序号&gt;]&lt;全局后缀 (global_suffix)&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>对于每一个单独的序号</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;前缀&gt;{序号类型[:样式:序号宽度]}&lt;后缀&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>修改主题配置，避免重复生成序号</p>
+<figure class="highlight yml"><figcaption><span>文件位置:themes/next/_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Table Of Contents in the Sidebar</span></span><br><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="序号样式">序号样式</h4>
+<table>
+<thead>
+<tr class="header">
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>从0开始的数字序号</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>从1开始的数字序号</td>
+</tr>
+<tr class="odd">
+<td>i</td>
+<td>小写的罗马字符</td>
+</tr>
+<tr class="even">
+<td>I</td>
+<td>大写的罗马字符</td>
+</tr>
+<tr class="odd">
+<td>a</td>
+<td>小写的英文字符（最大到z，如果序号大于26，那么就会被转化成z）</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>大写的英文字符（最大到Z，如果序号大于26，那么就会被转化成Z）</td>
+</tr>
+</tbody>
+</table>
+<p>另外对于序号”0”和”1’，还有一些额外的样式：</p>
+<ul>
+<li>x: 以小写16进制输出序号</li>
+<li>X: 以大写16进制输出序号</li>
+</ul>
+<p>”0”和”1”类型的序号还能指定宽度，比如，如果指定宽度为2，那么序号3就会输出成03</p>
+<h4 id="示例">示例</h4>
+<p>为了更好的说明这些配置的作用，这里再举一个例子。很多人写技术文章喜欢使用”0x00 0x01: “这类的序号，那么只需要这样配置即可：</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">heading_index<span class="punctuation">:</span></span><br><span class="line">  enable<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  index_styles<span class="punctuation">:</span> <span class="string">"0x{0:X:2} 0x{0:X:2} 0x{0:X:2} 0x{0:X:2} 0x{0:X:2} 0x{0:X:2}"</span></span><br><span class="line">  connector<span class="punctuation">:</span> <span class="string">" "</span></span><br><span class="line">  global_prefix<span class="punctuation">:</span> <span class="string">""</span></span><br><span class="line">  global_suffix<span class="punctuation">:</span> <span class="string">": "</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="额外的方法">额外的方法</h4>
+<p>如果不想用插件，也可用css方式实现,只需修改主题的自定义css风格</p>
+<figure class="highlight stylus"><figcaption><span>文件位置:themes\next\source\css\_custom\custom.styl</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文章标题增加序号</span></span><br><span class="line"><span class="selector-class">.post-body</span> {<span class="attribute">counter-reset</span>:section}</span><br><span class="line"><span class="selector-class">.post-body</span> h2{<span class="attribute">counter-reset</span>:sub-section}</span><br><span class="line"><span class="selector-class">.post-body</span> h3{<span class="attribute">counter-reset</span>:composite}</span><br><span class="line"><span class="selector-class">.post-body</span> h4{<span class="attribute">counter-reset</span>:detail}</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h2</span>:before{<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:section}</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h3</span>:before{<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:sub-section}</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h4</span>:before{<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">"."</span> <span class="built_in">counter</span>(composite) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:composite}</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h5</span>:before{<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">"."</span> <span class="built_in">counter</span>(composite) <span class="string">"."</span> <span class="built_in">counter</span>(detail) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:detail}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="深度美化与优化">深度美化与优化</h2>
+<h3 id="显示pdf">显示pdf</h3>
+<p>安装插件<code>hexo-pdf</code>[^3]</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></tbody></table></figure>
+<p>使用方法</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% pdf <span class="attr">http</span>:<span class="comment">//7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf %}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>或者,将pdf放入同级目录后</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% pdf ./bash_freshman.<span class="property">pdf</span> %}</span><br></pre></td></tr></tbody></table></figure>
+<p>示例</p>
+<div class="pdfobject-container" data-target="./LaTeX_Beamer_Presentations.pdf" data-height="500px"></div>
+<h3 id="博文压缩">博文压缩</h3>
+<p>使用<code>hexo-neat</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 和 <code>hexo-imagemin</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>,安装指令如下:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-neat --save</span><br><span class="line">npm install hexo-imagemin --save</span><br></pre></td></tr></tbody></table></figure>
+<p>并增加博客配置如下(跳过一些文件以提高压缩效率)：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hexo-neat</span></span><br><span class="line"><span class="attr">neat_enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">neat_html:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">neat_css:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'**/*.min.css'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">neat_js:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mangle:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">output:</span></span><br><span class="line">  <span class="attr">compress:</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'**/*.min.js'</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'**/jquery.fancybox.pack.js'</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">'**/index.js'</span> </span><br><span class="line"></span><br><span class="line"><span class="attr">imagemin:</span></span><br><span class="line">  <span class="attr">enable     :</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">interlaced :</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">multipass  :</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">optimizationLevel:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">pngquant   :</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">progressive:</span> <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="代码块深度优化">代码块深度优化</h3>
+<p>修改<code>styl</code>文件即可</p>
+<p>额外注意的是：如果<code>latex</code>不高亮，将语言改为<code>tex</code>即可</p>
+<figure class="highlight stylus"><figcaption><span>文件路径:themes/next/source/css/_custom/custom.styl</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代码块调整</span></span><br><span class="line"><span class="comment">//代码块头部字体颜色适配</span></span><br><span class="line"><span class="selector-class">.highlight</span> figcaption{</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#63ce4b</span>;<span class="comment">//#b10707;</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#21252b</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">0.8em</span>;</span><br><span class="line">    <span class="attribute">padding-top</span>: <span class="number">0.7em</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.highlight</span> <span class="selector-tag">figcaption</span>::before{</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"》"</span>;</span><br><span class="line">    <span class="attribute">display</span>: unset ;    </span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.highlight</span> <span class="selector-tag">figcaption</span> <span class="selector-tag">span</span>::before{</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"【"</span>;</span><br><span class="line">    <span class="attribute">display</span>: unset ;    </span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.highlight</span> <span class="selector-tag">figcaption</span> <span class="selector-tag">span</span>::after{</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"】"</span>;</span><br><span class="line">    <span class="attribute">display</span>: unset ;    </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//代码块圆角矩形</span></span><br><span class="line"><span class="selector-class">.highlight</span> {</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">5px</span> -<span class="number">5px</span> <span class="number">7px</span> -<span class="number">1px</span> <span class="built_in">rgba</span>(<span class="number">128</span>, <span class="number">129</span>, <span class="number">130</span>, <span class="number">0.61</span>);    </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 滑条样式调整</span></span><br><span class="line"><span class="comment">// 设置滚动条的样式</span></span><br><span class="line">::-webkit-scrollbar {</span><br><span class="line"><span class="attribute">width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">5px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//滚动槽</span></span><br><span class="line">::-webkit-scrollbar-track {</span><br><span class="line"><span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//滚动条滑块</span></span><br><span class="line">::-webkit-scrollbar-thumb {</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">}</span><br><span class="line">::-webkit-scrollbar-thumb<span class="selector-pseudo">:hover</span> {</span><br><span class="line"><span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">247</span>, <span class="number">149</span>, <span class="number">51</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="个性化样式">个性化样式</h3>
+<p>1.为next主题主页文章添加阴影效果,在<code>themes/next/source/css/_custom/custom.styl</code>文件添加:</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.post</span> {</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">  -webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, .<span class="number">5</span>);</span><br><span class="line">  -moz-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, .<span class="number">5</span>);</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+<p>2.好玩的样式, 在<code>themes/next/source/css/_custom/custom.styl</code>增加如下样式:</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下载样式</span></span><br><span class="line">a<span class="selector-id">#download</span> {</span><br><span class="line"><span class="attribute">display</span>: inline-block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line"><span class="attribute">background</span>: transparent;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#000</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">2px</span>;</span><br><span class="line"><span class="attribute">transition</span>: all .<span class="number">5s</span> ease;</span><br><span class="line"><span class="attribute">font-weight</span>: bold;</span><br><span class="line"><span class="selector-pseudo">&amp;:hover</span> {</span><br><span class="line"><span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line"><span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">}</span><br><span class="line">}</span><br><span class="line">/ /颜色块-黄</span><br><span class="line">span<span class="selector-id">#inline-yellow</span> {</span><br><span class="line"><span class="attribute">display</span>:inline;</span><br><span class="line"><span class="attribute">padding</span>:.<span class="number">2em</span> .<span class="number">6em</span> .<span class="number">3em</span>;</span><br><span class="line"><span class="attribute">font-size</span>:<span class="number">80%</span>;</span><br><span class="line"><span class="attribute">font-weight</span>:bold;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">1</span>;</span><br><span class="line"><span class="attribute">color</span>:<span class="number">#fff</span>;</span><br><span class="line"><span class="attribute">text-align</span>:center;</span><br><span class="line"><span class="attribute">white-space</span>:nowrap;</span><br><span class="line"><span class="attribute">vertical-align</span>:baseline;</span><br><span class="line"><span class="attribute">border-radius</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#f0ad4e</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 颜色块-绿</span></span><br><span class="line">span<span class="selector-id">#inline-green</span> {</span><br><span class="line"><span class="attribute">display</span>:inline;</span><br><span class="line"><span class="attribute">padding</span>:.<span class="number">2em</span> .<span class="number">6em</span> .<span class="number">3em</span>;</span><br><span class="line"><span class="attribute">font-size</span>:<span class="number">80%</span>;</span><br><span class="line"><span class="attribute">font-weight</span>:bold;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">1</span>;</span><br><span class="line"><span class="attribute">color</span>:<span class="number">#fff</span>;</span><br><span class="line"><span class="attribute">text-align</span>:center;</span><br><span class="line"><span class="attribute">white-space</span>:nowrap;</span><br><span class="line"><span class="attribute">vertical-align</span>:baseline;</span><br><span class="line"><span class="attribute">border-radius</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#5cb85c</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 颜色块-蓝</span></span><br><span class="line">span<span class="selector-id">#inline-blue</span> {</span><br><span class="line"><span class="attribute">display</span>:inline;</span><br><span class="line"><span class="attribute">padding</span>:.<span class="number">2em</span> .<span class="number">6em</span> .<span class="number">3em</span>;</span><br><span class="line"><span class="attribute">font-size</span>:<span class="number">80%</span>;</span><br><span class="line"><span class="attribute">font-weight</span>:bold;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">1</span>;</span><br><span class="line"><span class="attribute">color</span>:<span class="number">#fff</span>;</span><br><span class="line"><span class="attribute">text-align</span>:center;</span><br><span class="line"><span class="attribute">white-space</span>:nowrap;</span><br><span class="line"><span class="attribute">vertical-align</span>:baseline;</span><br><span class="line"><span class="attribute">border-radius</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#2780e3</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 颜色块-紫</span></span><br><span class="line">span<span class="selector-id">#inline-purple</span> {</span><br><span class="line"><span class="attribute">display</span>:inline;</span><br><span class="line"><span class="attribute">padding</span>:.<span class="number">2em</span> .<span class="number">6em</span> .<span class="number">3em</span>;</span><br><span class="line"><span class="attribute">font-size</span>:<span class="number">80%</span>;</span><br><span class="line"><span class="attribute">font-weight</span>:bold;</span><br><span class="line"><span class="attribute">line-height</span>:<span class="number">1</span>;</span><br><span class="line"><span class="attribute">color</span>:<span class="number">#fff</span>;</span><br><span class="line"><span class="attribute">text-align</span>:center;</span><br><span class="line"><span class="attribute">white-space</span>:nowrap;</span><br><span class="line"><span class="attribute">vertical-align</span>:baseline;</span><br><span class="line"><span class="attribute">border-radius</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#9954bb</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 左侧边框红色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-left-red</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-left-color</span>: <span class="number">#df3e3e</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 左侧边框黄色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-left-yellow</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-left-color</span>: <span class="number">#f0ad4e</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 左侧边框绿色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-left-green</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-left-color</span>: <span class="number">#5cb85c</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 左侧边框蓝色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-left-blue</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-left-color</span>: <span class="number">#2780e3</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 左侧边框紫色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-left-purple</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-left-color</span>: <span class="number">#9954bb</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 右侧边框红色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-right-red</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-right-color</span>: <span class="number">#df3e3e</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 右侧边框黄色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-right-yellow</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-right-color</span>: <span class="number">#f0ad4e</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 右侧边框绿色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-right-green</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-right-color</span>: <span class="number">#5cb85c</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 右侧边框蓝色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-right-blue</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-right-color</span>: <span class="number">#2780e3</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 右侧边框紫色块级</span></span><br><span class="line">p<span class="selector-id">#div-border-right-purple</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-right-color</span>: <span class="number">#9954bb</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 上侧边框红色</span></span><br><span class="line">p<span class="selector-id">#div-border-top-red</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-top-color</span>: <span class="number">#df3e3e</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 上侧边框黄色</span></span><br><span class="line">p<span class="selector-id">#div-border-top-yellow</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-top-color</span>: <span class="number">#f0ad4e</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 上侧边框绿色</span></span><br><span class="line">p<span class="selector-id">#div-border-top-green</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-top-color</span>: <span class="number">#5cb85c</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 上侧边框蓝色</span></span><br><span class="line">p<span class="selector-id">#div-border-top-blue</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-top-color</span>: <span class="number">#2780e3</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 上侧边框紫色</span></span><br><span class="line">p<span class="selector-id">#div-border-top-purple</span> {</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line"><span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line"><span class="attribute">border-top-color</span>: <span class="number">#9954bb</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>2.1文字增加背景色块 <span id="inline-blue">站点配置文件</span>,<span id="inline-purple">主题配置文件</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"inline-blue"</span>&gt;</span>站点配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span>, </span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"inline-purple"</span>&gt;</span>主题配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>2.2引用边框变色</p>
+<p id="div-border-left-red">
+如果没有安装成功, 那可能就是墙的原因. 建议下载 <code>Node.js</code> 直接安装.
+</p>
+<p id="div-border-top-blue">
+关于更多基本操作和基础知识, 请查阅 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 与 <a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NexT</a> 官方文档.
+</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"div-border-left-red"</span>&gt;</span>如果没有安装成功, 那可能就是墙的原因. 建议下载 `Node.js` 直接安装. <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"div-border-top-blue"</span>&gt;</span>关于更多基本操作和基础知识, 请查阅 [Hexo](https://hexo.io/zh-cn/) 与 [NexT](http://theme-next.iissnan.com/) 官方文档.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br></pre></td></tr></tbody></table></figure>
+<p>2.3图形边框效果</p>
+<center>
+<a id="download" target="_blank" rel="noopener" href="https://git-scm.com/download/win"><i class="fa fa-download"></i><span> Download Now</span> </a>
+</center>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"download"</span> <span class="attr">href</span>=<span class="string">"https://git-scm.com/download/win"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-download"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> Download Now<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>更多tips可参考 <a target="_blank" rel="noopener" href="https://yangbingdong.com/2017/build-blog-hexo-advanced">blog</a></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p><a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-neat">hexo-neat 项目主页</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a target="_blank" rel="noopener" href="https://github.com/vseventer/hexo-imagemin">hexo-imagemin 项目主页</a> [^3 ]: <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-pdf">hexo-pdf 主页</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body></html>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\39879\" rel="bookmark">GIT常用命令</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\19110\" rel="bookmark">快速搭建博客指南</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/6347/" rel="next" title="RL学习笔记01">
+      RL学习笔记01 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3md%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">解决md数学公式渲染问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E5%9D%91%E8%AE%B0%E5%BD%95"><span class="nav-number">2.1.</span> <span class="nav-text">采坑记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E5%81%9A%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">正确做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">2.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3md%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">解决md图片路径问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="nav-number">3.4.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.5.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E5%9C%A8ubuntu18.04-%E8%BF%90%E8%A1%8C"><span class="nav-number">5.</span> <span class="nav-text">hexo在Ubuntu18.04 运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%8A%80%E5%B7%A7"><span class="nav-number">6.</span> <span class="nav-text">常用设置与技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo%E5%86%85%E7%BD%AE%E6%A0%87%E7%AD%BE%E4%B8%8E%E6%A0%87%E8%AE%B0"><span class="nav-number">6.1.</span> <span class="nav-text">Hexo内置标签与标记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%85%E4%B8%AD%E5%BC%95%E7%94%A8"><span class="nav-number">6.1.1.</span> <span class="nav-text">居中引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next%E8%87%AA%E5%B8%A6tag"><span class="nav-number">6.1.2.</span> <span class="nav-text">NexT自带tag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81"><span class="nav-number">6.2.</span> <span class="nav-text">文章摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="nav-number">6.3.</span> <span class="nav-text">版权信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E7%BB%93%E6%9D%9F%E6%A0%87%E7%AD%BE"><span class="nav-number">6.4.</span> <span class="nav-text">文章结束标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE%E5%85%A5%E5%8F%A3"><span class="nav-number">6.5.</span> <span class="nav-text">增加网站地图入口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E6%A0%87%E9%A2%98%E5%A2%9E%E5%8A%A0%E5%BA%8F%E5%8F%B7"><span class="nav-number">6.6.</span> <span class="nav-text">为标题增加序号</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-1"><span class="nav-number">6.6.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">6.6.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%8F%E5%8F%B7%E6%A0%B7%E5%BC%8F"><span class="nav-number">6.6.3.</span> <span class="nav-text">序号样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.6.4.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">6.6.5.</span> <span class="nav-text">额外的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E7%BE%8E%E5%8C%96%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">7.</span> <span class="nav-text">深度美化与优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BApdf"><span class="nav-number">7.1.</span> <span class="nav-text">显示pdf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%9A%E6%96%87%E5%8E%8B%E7%BC%A9"><span class="nav-number">7.2.</span> <span class="nav-text">博文压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%8C%96"><span class="nav-number">7.3.</span> <span class="nav-text">代码块深度优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AA%E6%80%A7%E5%8C%96%E6%A0%B7%E5%BC%8F"><span class="nav-number">7.4.</span> <span class="nav-text">个性化样式</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lingjia Meng"
+      src="/uploads/s0mE.jpg">
+  <p class="site-author-name" itemprop="name">Lingjia Meng</p>
+  <div class="site-description" itemprop="description">Less is More</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lingjiameng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lingjiameng" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1574761457@qq.com" title="QQmail → mailto:1574761457@qq.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:menglingjia0214@gmail.com" title="Gmail → mailto:menglingjia0214@gmail.com" rel="noopener" target="_blank"><i class="google fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/a3551736" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;a3551736" rel="noopener" target="_blank"><i class="chain fa-fw"></i></a>
+      </span>
+  </div>
+
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("1/15/2019 12:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lingjia Meng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">80k</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df63eb9372b8a11" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"T4Rf3UmWXRrRET3uJLvw7pkV-gzGzoHsz","app_key":"TDgSBGJrLQavgs9FMBLpw8xl","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 18870,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'jj8JkPaN8iWC8WvasXt8GPXF-gzGzoHsz',
+      appKey     : 'pieyWVlEVwMAiNGtQg93DEGv',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ljmeng.site","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="插入图片 123456\begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形    \centering %图片居中    \includegraphics[width&#x3D;0.7\textwidth,height&#x3D;0.7\textheight]{图片路径} %插入图片，[]中设置图片大小，{}中是图片文件名    % \caption{Main name 2}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX笔记">
+<meta property="og:url" content="http://ljmeng.site/posts/58559/">
+<meta property="og:site_name" content="ljmeng的个人小站">
+<meta property="og:description" content="插入图片 123456\begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形    \centering %图片居中    \includegraphics[width&#x3D;0.7\textwidth,height&#x3D;0.7\textheight]{图片路径} %插入图片，[]中设置图片大小，{}中是图片文件名    % \caption{Main name 2}">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-28T12:06:09.000Z">
+<meta property="article:modified_time" content="2019-05-28T12:06:09.000Z">
+<meta property="article:author" content="Lingjia Meng">
+<meta property="article:tag" content="LaTeX">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://ljmeng.site/posts/58559/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>LaTeX笔记 | ljmeng的个人小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="ljmeng的个人小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ljmeng的个人小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Less is More</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-lab">
+
+    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>lab</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://ljmeng.site/posts/58559/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/s0mE.jpg">
+      <meta itemprop="name" content="Lingjia Meng">
+      <meta itemprop="description" content="Less is More">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ljmeng的个人小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LaTeX笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-28 20:06:09" itemprop="dateCreated datePublished" datetime="2019-05-28T20:06:09+08:00">2019-05-28</time>
+            </span>
+
+          
+            <span id="/posts/58559/" class="post-meta-item leancloud_visitors" data-flag-title="LaTeX笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/58559/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/58559/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <html><head></head><body><h2 id="插入图片">插入图片</h2>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{figure}[H] <span class="comment">%H为当前位置，!htb为忽略美学标准，htbp为浮动图形</span></span><br><span class="line">    <span class="keyword">\centering</span> <span class="comment">%图片居中</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=0.7<span class="keyword">\textwidth</span>,height=0.7<span class="keyword">\textheight</span>]{图片路径} <span class="comment">%插入图片，[]中设置图片大小，{}中是图片文件名</span></span><br><span class="line">    <span class="comment">% \caption{Main name 2} %最终文档中希望显示的图片标题</span></span><br><span class="line">    <span class="keyword">\label</span>{remix} <span class="comment">%用于文内引用的标签</span></span><br><span class="line"><span class="keyword">\end</span>{figure}</span><br></pre></td></tr></tbody></table></figure>
+<span id="more"></span>
+<h3 id="插入多张图片">插入多张图片</h3>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>{graphicx}</span><br><span class="line"><span class="keyword">\usepackage</span>{subfigure}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%这里的示例效果是并排显示两张图片后</span></span><br><span class="line"><span class="comment">%再换行后并排显示另外两张图片</span></span><br><span class="line"><span class="keyword">\begin</span>{figure}[htbp]</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\subfigure</span>[pic1.]{</span><br><span class="line"><span class="keyword">\begin</span>{minipage}[t]{0.25<span class="keyword">\linewidth</span>}</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=1in]{111.eps}</span><br><span class="line"><span class="comment">%\caption{fig1}</span></span><br><span class="line"><span class="keyword">\end</span>{minipage}<span class="comment">%</span></span><br><span class="line">}<span class="comment">%</span></span><br><span class="line"><span class="keyword">\subfigure</span>[pic2.]{</span><br><span class="line"><span class="keyword">\begin</span>{minipage}[t]{0.25<span class="keyword">\linewidth</span>}</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=1in]{111.eps}</span><br><span class="line"><span class="comment">%\caption{fig2}</span></span><br><span class="line"><span class="keyword">\end</span>{minipage}<span class="comment">%</span></span><br><span class="line">}<span class="comment">%</span></span><br><span class="line">                <span class="comment">%这个回车键很重要（换行效果） \quad也可以</span></span><br><span class="line"><span class="keyword">\subfigure</span>[pic3.]{</span><br><span class="line"><span class="keyword">\begin</span>{minipage}[t]{0.25<span class="keyword">\linewidth</span>}</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=1in]{111.eps}</span><br><span class="line"><span class="comment">%\caption{fig2}</span></span><br><span class="line"><span class="keyword">\end</span>{minipage}</span><br><span class="line">}<span class="comment">%</span></span><br><span class="line"><span class="keyword">\subfigure</span>[pic4.]{</span><br><span class="line"><span class="keyword">\begin</span>{minipage}[t]{0.25<span class="keyword">\linewidth</span>}</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=1in]{111.eps}</span><br><span class="line"><span class="comment">%\caption{fig2}</span></span><br><span class="line"><span class="keyword">\end</span>{minipage}</span><br><span class="line">}<span class="comment">%</span></span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\caption</span>{ pics}</span><br><span class="line"><span class="keyword">\end</span>{figure}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="列表缩进">列表缩进</h2>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 添加在\begin{document}前</span></span><br><span class="line"><span class="keyword">\usepackage</span>{enumitem} </span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>{enumerate}[itemindent=1em]  <span class="comment">%在这里设置缩进的距离</span></span><br><span class="line"><span class="keyword">\item</span> item0</span><br><span class="line"><span class="keyword">\item</span> item1</span><br><span class="line"><span class="keyword">\item</span> item2</span><br><span class="line"><span class="keyword">\end</span>{enumerate}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="插入代码">插入代码</h2>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>{listings} <span class="comment">% 插入代码</span></span><br><span class="line"><span class="keyword">\lstset</span>{  <span class="comment">%代码格式自定义</span></span><br><span class="line"> columns=fixed,       </span><br><span class="line"> numbers=left,                                        <span class="comment">% 在左侧显示行号</span></span><br><span class="line"> numberstyle=<span class="keyword">\tiny</span><span class="keyword">\color</span>{gray},                       <span class="comment">% 设定行号格式</span></span><br><span class="line"> frame=none,                                          <span class="comment">% 不显示背景边框</span></span><br><span class="line"> keywordstyle=<span class="keyword">\color</span>[RGB]{40,40,255},                 <span class="comment">% 设定关键字颜色</span></span><br><span class="line"> numberstyle=<span class="keyword">\footnotesize</span><span class="keyword">\color</span>{darkgray},           </span><br><span class="line"> commentstyle=<span class="keyword">\it</span><span class="keyword">\color</span>[RGB]{0,96,96},                <span class="comment">% 设置代码注释的格式</span></span><br><span class="line"> stringstyle=<span class="keyword">\rmfamily</span><span class="keyword">\slshape</span><span class="keyword">\color</span>[RGB]{128,0,0},   <span class="comment">% 设置字符串格式</span></span><br><span class="line"> showstringspaces=false,                              <span class="comment">% 不显示字符串中的空格</span></span><br><span class="line"> language=java,                                        <span class="comment">% 设置语言</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">%正文使用</span></span><br><span class="line"><span class="keyword">\begin</span>{lstlisting} <span class="comment">% [breaklines]打开折行</span></span><br><span class="line">代码</span><br><span class="line"><span class="keyword">\end</span>{lstlisting}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="设置目录显示级数">设置目录显示级数</h2>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%通过调整数字即可控制显示级数，2为显示到subsection</span></span><br><span class="line"><span class="keyword">\setcounter</span>{tocdepth}{2}</span><br><span class="line"><span class="keyword">\tableofcontents</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="局部字体放大">局部字体放大</h2>
+<p>从小到大排列</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\tiny</span></span><br><span class="line"><span class="keyword">\scriptsize</span></span><br><span class="line"><span class="keyword">\footnotesize</span></span><br><span class="line"><span class="keyword">\small</span></span><br><span class="line"><span class="keyword">\normalsize</span></span><br><span class="line"><span class="keyword">\large</span></span><br><span class="line"><span class="keyword">\Large</span></span><br><span class="line"><span class="keyword">\LARGE</span></span><br><span class="line"><span class="keyword">\huge</span></span><br><span class="line"><span class="keyword">\Huge</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%两种用法</span></span><br><span class="line"><span class="comment">%inline</span></span><br><span class="line">{<span class="keyword">\large</span> this is large<span class="keyword">\par</span>}</span><br><span class="line"><span class="comment">%environment</span></span><br><span class="line"><span class="keyword">\begin</span>{large}</span><br><span class="line">bla bla bla ...</span><br><span class="line"><span class="keyword">\end</span>{large}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="页面居中">页面居中</h2>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 垂直居中</span></span><br><span class="line"><span class="keyword">\vfill</span></span><br><span class="line">正文</span><br><span class="line"><span class="keyword">\vfill</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%垂直水平居中</span></span><br><span class="line"><span class="keyword">\vfill</span></span><br><span class="line"><span class="keyword">\center</span>{正文}</span><br><span class="line"><span class="keyword">\vfill</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="中文支持">中文支持</h2>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%方法一：全文档中文支持</span></span><br><span class="line"><span class="comment">%文档开始添加如下行</span></span><br><span class="line"><span class="keyword">\usepackage</span>{ctex} </span><br><span class="line"></span><br><span class="line"><span class="comment">%方法二：局部文档中文支持</span></span><br><span class="line"><span class="comment">%文档开始添加</span></span><br><span class="line"><span class="keyword">\usepackage</span>{CJKutf8}</span><br><span class="line"></span><br><span class="line"><span class="comment">%正文使用中文时</span></span><br><span class="line"><span class="comment">%先添加begin</span></span><br><span class="line"><span class="keyword">\begin</span>{CJK}{UTF8}{gbsn}</span><br><span class="line">正文部分</span><br><span class="line"><span class="comment">%再添加end</span></span><br><span class="line"><span class="keyword">\end</span>{CJK}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="默认打开全屏">默认打开全屏</h2>
+<p>文档开头加入</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%pdf 打开默认全屏模式</span></span><br><span class="line"><span class="keyword">\hypersetup</span>{pdfpagemode=FullScreen}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="数学公式">数学公式</h2>
+<p>除了<code>$...$</code>和<code>$$...$$</code>之外</p>
+<p>还有标准单个公式</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{equation}</span><br><span class="line"><span class="comment">%公式写在这里</span></span><br><span class="line"><span class="keyword">\end</span>{equation}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="插入中文">插入中文</h3>
+<p><code>\mbox{拒绝}</code>或者<code>\text{拒绝}</code></p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span> P<span class="keyword">\{</span><span class="keyword">\mbox</span>{拒绝} <span class="keyword">\mid</span> H<span class="built_in">_</span>{0} <span class="keyword">\mbox</span>{为真}<span class="keyword">\}</span> = <span class="keyword">\alpha</span> <span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"><span class="comment">%或者</span></span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span> P<span class="keyword">\{</span><span class="keyword">\text</span>{拒绝} <span class="keyword">\mid</span> H<span class="built_in">_</span>{0} <span class="keyword">\text</span>{为真}<span class="keyword">\}</span> = <span class="keyword">\alpha</span> <span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="math display">\[ P\{\mbox{拒绝} \mid H_{0} \mbox{为真}\} = \alpha \]</span></p>
+<h3 id="公式对齐">公式对齐</h3>
+<h4 id="单独的公式环境">单独的公式环境</h4>
+<p><strong>align</strong> 每行是一个公式，都会独立编号</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{align}</span><br><span class="line">f(x) <span class="built_in">&amp;</span>= (x+a)(x+b) <span class="keyword">\\</span></span><br><span class="line"> <span class="built_in">&amp;</span>= x<span class="built_in">^</span>2 + (a+b)x + ab</span><br><span class="line"><span class="keyword">\end</span>{align}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>alignat</strong> 接收一个参数用来指定根据哪一列对齐</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{alignat}{2}</span><br><span class="line"> <span class="keyword">\sigma</span><span class="built_in">_</span>1 <span class="built_in">&amp;</span>= x + y  <span class="built_in">&amp;</span><span class="keyword">\quad</span> <span class="keyword">\sigma</span><span class="built_in">_</span>2 <span class="built_in">&amp;</span>= <span class="keyword">\frac</span>{x}{y} <span class="keyword">\\</span>  </span><br><span class="line"> <span class="keyword">\sigma</span><span class="built_in">_</span>1' <span class="built_in">&amp;</span>= <span class="keyword">\frac</span>{<span class="keyword">\partial</span> x + y}{<span class="keyword">\partial</span> x} <span class="built_in">&amp;</span> <span class="keyword">\sigma</span><span class="built_in">_</span>2'</span><br><span class="line">    <span class="built_in">&amp;</span>= <span class="keyword">\frac</span>{<span class="keyword">\partial</span> <span class="keyword">\frac</span>{x}{y}}{<span class="keyword">\partial</span> x}</span><br><span class="line"><span class="keyword">\end</span>{alignat}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="内嵌的公式环境">内嵌的公式环境</h4>
+<p>如果报错缺少包，可以用<code>\usepackage{amsmath}</code></p>
+<p><strong>aligned</strong></p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{equation}</span><br><span class="line">&nbsp;<span class="keyword">\left</span>.<span class="keyword">\begin</span>{aligned}</span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; B'<span class="built_in">&amp;</span>=-<span class="keyword">\partial</span>&nbsp;<span class="keyword">\times</span>&nbsp;E,<span class="keyword">\\</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; E'<span class="built_in">&amp;</span>=<span class="keyword">\partial</span>&nbsp;<span class="keyword">\times</span>&nbsp;B - 4<span class="keyword">\pi</span>&nbsp;j,</span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp;<span class="keyword">\end</span>{aligned}</span><br><span class="line">&nbsp;<span class="keyword">\right</span><span class="keyword">\}</span></span><br><span class="line">&nbsp;<span class="keyword">\qquad</span>&nbsp;<span class="keyword">\text</span>{Maxwell's equations}</span><br><span class="line"><span class="keyword">\end</span>{equation}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>split</strong> 多个公式拆分成多行，但是它整体还只是一个公式。</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{equation}</span><br><span class="line"> <span class="keyword">\begin</span>{split}</span><br><span class="line"> (a + b)<span class="built_in">^</span>4</span><br><span class="line">   <span class="built_in">&amp;</span>= (a + b)<span class="built_in">^</span>2 (a + b)<span class="built_in">^</span>2      <span class="keyword">\\</span></span><br><span class="line">   <span class="built_in">&amp;</span>= (a<span class="built_in">^</span>2 + 2ab + b<span class="built_in">^</span>2)</span><br><span class="line">      (a<span class="built_in">^</span>2 + 2ab + b<span class="built_in">^</span>2)        <span class="keyword">\\</span></span><br><span class="line">   <span class="built_in">&amp;</span>= a<span class="built_in">^</span>4 + 4a<span class="built_in">^</span>3b + 6a<span class="built_in">^</span>2b<span class="built_in">^</span>2 + 4ab<span class="built_in">^</span>3 + b<span class="built_in">^</span>4</span><br><span class="line"> <span class="keyword">\end</span>{split}</span><br><span class="line"><span class="keyword">\end</span>{equation}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="增加批注">增加批注</h2>
+<p>可以在多人合作时使用</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\newcommand</span>{<span class="keyword">\meng</span>}[1]{<span class="keyword">\textcolor</span>{cyan}{[meng: <span class="params">#1</span>]}}</span><br><span class="line"></span><br><span class="line">ABC <span class="keyword">\meng</span>{revise this part later}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="beamer">Beamer</h2>
+<p>非常有用的维基beamer链接<a target="_blank" rel="noopener" href="https://en.wikibooks.org/wiki/LaTeX/Presentations">link</a></p>
+<p>使用代码不正常时可以尝试加入<code>\begin{frame}[fragile]</code></p>
+<h3 id="结构frame选项">结构(Frame)选项</h3>
+<ul>
+<li><code>\frame[plain]{\frametitle{}..}</code> 适用于如 本页 ( 第 10 页 ) 所用的 plane 结构!</li>
+<li><code>[containsverbatim]</code> 适用于使用 verbatim 环境和 <code>\verb</code>命令。</li>
+<li><code>[allowframebreaks]</code> 适用于一张幻灯片放不下内容时自动分开。</li>
+<li><code>[shrink]</code> 适用于缩小内容充满一张幻灯片。</li>
+<li><code>[squeeze]</code> 适用于挤压垂直空间。</li>
+</ul>
+<h3 id="增加页码">增加页码</h3>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%文档开头添加即可</span></span><br><span class="line"><span class="keyword">\addtobeamertemplate</span>{navigation symbols}{}{<span class="comment">%</span></span><br><span class="line">       <span class="keyword">\usebeamerfont</span>{footline}<span class="comment">%</span></span><br><span class="line">       <span class="keyword">\usebeamercolor</span>[fg]{footline}<span class="comment">%</span></span><br><span class="line">       <span class="keyword">\hspace</span>{1em}<span class="comment">%</span></span><br><span class="line">       <span class="keyword">\insertframenumber</span>/<span class="keyword">\inserttotalframenumber</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="增加目录">增加目录</h3>
+<h4 id="开头目录">开头目录</h4>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{frame}           <span class="comment">%生成目录页，目录太长时加选项[shrink]</span></span><br><span class="line">    <span class="keyword">\addtocounter</span>{framenumber}{-2}        <span class="keyword">\frametitle</span>{目录}</span><br><span class="line">    <span class="keyword">\thispagestyle</span>{empty}</span><br><span class="line">    <span class="keyword">\tableofcontents</span>        <span class="comment">% 也可以插入选项 [pausesections]</span></span><br><span class="line">    <span class="comment">%----------------------列目录时，隐藏所有的小节</span></span><br><span class="line">    <span class="comment">%\tableofcontents[hideallsubsections]</span></span><br><span class="line"><span class="keyword">\end</span>{frame}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="章节section目录">章节(section)目录</h4>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%注意 加在\document 后</span></span><br><span class="line"><span class="keyword">\AtBeginSection</span>[]  <span class="comment">%该函数在每到一个subsection是就显示整篇文章的目录</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">\begin</span>{frame}&lt;beamer&gt;[plain]{目录} </span><br><span class="line">	<span class="keyword">\tableofcontents</span>[currentsection, currentsubsection, hideothersubsections,]</span><br><span class="line"><span class="keyword">\end</span>{frame}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="增加脚注引用">增加脚注引用</h3>
+<p><code>biblatex</code>安装方法</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install texlive-bibtex-extra biber</span><br></pre></td></tr></tbody></table></figure>
+<p>在\begin{document}前添加如下命令：</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[backend=bibtex,sorting=none]{biblatex}</span><br><span class="line"><span class="keyword">\addbibresource</span>{example.bib} <span class="comment">%BibTeX数据文件及位置</span></span><br><span class="line"><span class="keyword">\setbeamerfont</span>{footnote}{size=<span class="keyword">\tiny</span>}</span><br></pre></td></tr></tbody></table></figure>
+<p>文中引用使用：</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\footfullcite</span>{bib<span class="built_in">_</span>item} <span class="comment">%脚注引用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\cite</span>{bib<span class="built_in">_</span>item} <span class="comment">%正常引用</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="图文混排问题">图文混排问题</h3>
+<p>一般用于左侧文字，右侧显示图片等</p>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%文档开头使用宏包</span></span><br><span class="line"><span class="keyword">\usepackage</span>{multicol}</span><br><span class="line"></span><br><span class="line"><span class="comment">%正文使用时</span></span><br><span class="line"><span class="keyword">\begin</span>{frame}{具有内热源的平板导热}</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>{columns}</span><br><span class="line"></span><br><span class="line"><span class="keyword">\column</span>{0.65<span class="keyword">\textwidth</span>}&lt;1-&gt;</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">XXXXXXXXXXXX</span><br><span class="line"></span><br><span class="line"><span class="keyword">\column</span>{0.35<span class="keyword">\textwidth</span>}&lt;1-&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\shadowbox</span>{</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=0.9<span class="keyword">\textwidth</span>,totalheight=0.45<span class="keyword">\textheight</span>]{具有均匀内热源的平壁.png} </span><br><span class="line">} <span class="comment">%</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>{columns}</span><br><span class="line"></span><br><span class="line">~<span class="keyword">\\</span></span><br><span class="line">由此可见,与无内热源的平壁解相比,热流密度不再是常数,温度分布也不再是直线或抛物线,这些都是由于内热源引起的.</span><br><span class="line"><span class="keyword">\end</span>{frame}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="我的beamer模板">我的beamer模板</h3>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[c,notes,uncompressed,mathserif,blue]{beamer} <span class="comment">%设定页面基本样式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\usepackage</span>{listings} <span class="comment">% 插入代码</span></span><br><span class="line"><span class="keyword">\usepackage</span>{float} <span class="comment">% 图片美学</span></span><br><span class="line"><span class="keyword">\usepackage</span>[UTF8]{ctex} <span class="comment">%支持中文</span></span><br><span class="line"><span class="keyword">\usepackage</span>{multicol} <span class="comment">%单页分列显示</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\lstset</span>{  <span class="comment">%代码格式自定义</span></span><br><span class="line"> columns=fixed,       </span><br><span class="line"> numbers=left,                                        <span class="comment">% 在左侧显示行号</span></span><br><span class="line"> numberstyle=<span class="keyword">\tiny</span><span class="keyword">\color</span>{gray},                       <span class="comment">% 设定行号格式</span></span><br><span class="line"> frame=none,                                          <span class="comment">% 不显示背景边框</span></span><br><span class="line"> keywordstyle=<span class="keyword">\color</span>[RGB]{40,40,255},                 <span class="comment">% 设定关键字颜色</span></span><br><span class="line"> numberstyle=<span class="keyword">\footnotesize</span><span class="keyword">\color</span>{darkgray},           </span><br><span class="line"> commentstyle=<span class="keyword">\it</span><span class="keyword">\color</span>[RGB]{0,96,96},                <span class="comment">% 设置代码注释的格式</span></span><br><span class="line"> stringstyle=<span class="keyword">\rmfamily</span><span class="keyword">\slshape</span><span class="keyword">\color</span>[RGB]{128,0,0},   <span class="comment">% 设置字符串格式</span></span><br><span class="line"> showstringspaces=false,                              <span class="comment">% 不显示字符串中的空格</span></span><br><span class="line"> language=java,                                        <span class="comment">% 设置语言</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">% %---------------------------------</span></span><br><span class="line"><span class="comment">% % 取消注释，并将bib文件改名为reference.bib即可使用bib</span></span><br><span class="line"><span class="comment">% % 建议一并将结尾的参考文献页解注释</span></span><br><span class="line"><span class="comment">% % 使用biblatex进行文献引用，需要单独安装</span></span><br><span class="line"><span class="comment">% \usepackage[backend=bibtex,sorting=none]{biblatex}</span></span><br><span class="line"><span class="comment">% \addbibresource{reference.bib} %BibTeX数据文件及位置</span></span><br><span class="line"><span class="comment">% \setbeamerfont{footnote}{size=\tiny}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% %修改引用格式，使2引用显示正常</span></span><br><span class="line"><span class="comment">% \setbeamertemplate{bibliography item}[text]</span></span><br><span class="line"><span class="comment">% %-----------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%设置beamer主题和颜色主题</span></span><br><span class="line"><span class="keyword">\usetheme</span>{Antibes}</span><br><span class="line"><span class="comment">% \usetheme{Madrid} %此模板带页码</span></span><br><span class="line"><span class="comment">% \usecolortheme{lily} </span></span><br><span class="line"><span class="comment">% \usecolortheme{orchid} %此主题block背景有颜色</span></span><br><span class="line"><span class="comment">%------------针对Antibes的自定义配置-------------</span></span><br><span class="line"><span class="comment">%设置block为圆角并增加阴影</span></span><br><span class="line"><span class="keyword">\useinnertheme</span>[shadow=true]{rounded}</span><br><span class="line"></span><br><span class="line"><span class="comment">%------个人偏好，设置所有的序号为方形---</span></span><br><span class="line"><span class="comment">%参考 https://tex.stackexchange.com/questions/93874/where-can-i-find-a-list-of-itemize-bullet-shapes-in-latex-beamer</span></span><br><span class="line"><span class="comment">%设置有序和无序列表序号为方形</span></span><br><span class="line"><span class="keyword">\setbeamertemplate</span>{itemize items}[square]</span><br><span class="line"><span class="keyword">\setbeamertemplate</span>{enumerate items}[square]</span><br><span class="line"><span class="comment">% 参考 https://tex.stackexchange.com/questions/69720/latex-beamer-toc-dont-display-bubbles</span></span><br><span class="line"><span class="comment">%设置目录序号为方形</span></span><br><span class="line"><span class="keyword">\setbeamertemplate</span>{section in toc}[square]</span><br><span class="line"><span class="keyword">\setbeamertemplate</span>{subsection in toc}[square]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 设置标题颜色，去掉蓝色背景</span></span><br><span class="line"><span class="keyword">\definecolor</span>{dblue}{RGB}{00,33,99}</span><br><span class="line"><span class="keyword">\setbeamercolor</span>{frametitle}{fg=dblue,bg=}</span><br><span class="line"></span><br><span class="line"><span class="comment">% 重设下方导航条并增加页码</span></span><br><span class="line"><span class="keyword">\setbeamercolor</span>{footcolor}{fg=white,bg=structure!30}</span><br><span class="line"><span class="keyword">\setbeamertemplate</span>{navigation symbols}{}</span><br><span class="line"><span class="keyword">\addtobeamertemplate</span>{footline}{</span><br><span class="line">    <span class="keyword">\leavevmode</span><span class="comment">%</span></span><br><span class="line">    <span class="keyword">\hbox</span>{<span class="comment">%</span></span><br><span class="line">    <span class="keyword">\begin</span>{beamercolorbox}[wd=<span class="keyword">\paperwidth</span>,ht=2.75ex,dp=.5ex,right,rightskip=1em]{footcolor}<span class="comment">%</span></span><br><span class="line">    <span class="keyword">\usebeamercolor</span>[fg]{navigation symbols}<span class="keyword">\insertslidenavigationsymbol</span><span class="comment">%</span></span><br><span class="line">    <span class="keyword">\insertframenavigationsymbol</span><span class="comment">%</span></span><br><span class="line">    <span class="keyword">\insertsubsectionnavigationsymbol</span><span class="comment">%</span></span><br><span class="line">    <span class="keyword">\insertsectionnavigationsymbol</span><span class="comment">%</span></span><br><span class="line">    <span class="keyword">\insertdocnavigationsymbol</span><span class="comment">%</span></span><br><span class="line">    <span class="keyword">\insertbackfindforwardnavigationsymbol</span><span class="comment">%</span></span><br><span class="line">    <span class="keyword">\hspace</span>{0.2em} <span class="comment">%适当隔开页码和导航符</span></span><br><span class="line">    <span class="keyword">\raisebox</span>{1.4pt}[0pt][0pt]{ <span class="comment">% 解决对齐问题</span></span><br><span class="line">        <span class="keyword">\textcolor</span>{red}{<span class="keyword">\insertframenumber</span>/<span class="keyword">\inserttotalframenumber</span>}<span class="comment">% 生成页码</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">\end</span>{beamercolorbox}<span class="comment">%</span></span><br><span class="line">    }<span class="comment">%</span></span><br><span class="line">    <span class="keyword">\vskip</span>0.5pt<span class="comment">%</span></span><br><span class="line">}{}</span><br><span class="line"></span><br><span class="line"><span class="comment">%pdf 打开默认全屏模式</span></span><br><span class="line"><span class="keyword">\hypersetup</span>{pdfpagemode=FullScreen}</span><br><span class="line"></span><br><span class="line"><span class="comment">%------------------------------------</span></span><br><span class="line"><span class="comment">%------------开始创作-----------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\title</span>{标题}</span><br><span class="line"><span class="keyword">\subtitle</span>{主题}</span><br><span class="line"><span class="keyword">\author</span>{作者}</span><br><span class="line"><span class="comment">%------------------------------------</span></span><br><span class="line"><span class="comment">%-------------------------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>{document}</span><br><span class="line"><span class="comment">%------------------------------</span></span><br><span class="line"><span class="comment">%该函数在每到一个section前显示整篇文章的目录</span></span><br><span class="line"><span class="keyword">\AtBeginSection</span>[]  </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">\addtocounter</span>{framenumber}{-1} <span class="comment">%使此页不计入页码数</span></span><br><span class="line">    <span class="keyword">\begin</span>{frame}&lt;beamer&gt;[plain]{目录}</span><br><span class="line">        <span class="keyword">\tableofcontents</span>[currentsection,currentsubsection,hideothersubsections,]<span class="comment">%调整选项可以选择显示的内容</span></span><br><span class="line">    <span class="keyword">\end</span>{frame}</span><br><span class="line">}</span><br><span class="line"><span class="comment">%---------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%----------------------------------</span></span><br><span class="line"><span class="comment">% 标题页面</span></span><br><span class="line"><span class="keyword">\begin</span>{frame}[plain]</span><br><span class="line"><span class="keyword">\titlepage</span></span><br><span class="line"><span class="keyword">\end</span>{frame}</span><br><span class="line"></span><br><span class="line"><span class="comment">% 目录页面</span></span><br><span class="line"><span class="keyword">\begin</span>{frame}[plain]           <span class="comment">%生成目录页，目录太长时加选项[shrink]</span></span><br><span class="line">    <span class="keyword">\addtocounter</span>{framenumber}{-2}        </span><br><span class="line">    <span class="keyword">\frametitle</span>{目录}</span><br><span class="line">    <span class="comment">% \tableofcontents        % 也可以插入选项 [pausesections]</span></span><br><span class="line">    <span class="keyword">\tableofcontents</span>[hideallsubsections] <span class="comment">%列目录时，隐藏所有的小节</span></span><br><span class="line"><span class="keyword">\end</span>{frame}</span><br><span class="line"><span class="comment">%--------------------------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%------------------------------------</span></span><br><span class="line"><span class="comment">%------------开始创作-----------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% % -------- 选用功能 -------------</span></span><br><span class="line"><span class="comment">% % -------- 每个章节的名字单独显示，给人切换感</span></span><br><span class="line"><span class="comment">% \begin{frame}[plain]</span></span><br><span class="line"><span class="comment">%     \addtocounter{framenumber}{-1}</span></span><br><span class="line"><span class="comment">%     \vfill</span></span><br><span class="line"><span class="comment">%     \center{\Huge{章节名}}</span></span><br><span class="line"><span class="comment">%     \vfill</span></span><br><span class="line"><span class="comment">% \end{frame}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% --------------- 以下为示例 -----------</span></span><br><span class="line"><span class="keyword">\section</span>{第一章}</span><br><span class="line"><span class="keyword">\subsection</span>{第一节}</span><br><span class="line"><span class="keyword">\begin</span>{frame}{第一节}{子标题}</span><br><span class="line">    blablabla...</span><br><span class="line">    <span class="keyword">\begin</span>{exampleblock}{例子}</span><br><span class="line">        这是一个exampleblock示例</span><br><span class="line">    <span class="keyword">\end</span>{exampleblock}</span><br><span class="line">    这是一个item示例</span><br><span class="line">    <span class="keyword">\begin</span>{itemize}</span><br><span class="line">        <span class="keyword">\item</span> item1</span><br><span class="line">        <span class="keyword">\item</span> item2</span><br><span class="line">        <span class="keyword">\end</span>{itemize}</span><br><span class="line"><span class="keyword">\end</span>{frame}</span><br><span class="line"></span><br><span class="line"><span class="comment">% \subsection{第二节}</span></span><br><span class="line"><span class="comment">% \begin{frame}{第二节}{子标题}</span></span><br><span class="line"><span class="comment">%     blablabla...</span></span><br><span class="line"><span class="comment">%     这是一个引用的例子\footfullcite{prashanthjoshiSurveySecurityPrivacy2018}</span></span><br><span class="line"><span class="comment">% \end{frame}</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% ------------------------</span></span><br><span class="line"><span class="comment">% ----------结束页面--------</span></span><br><span class="line"><span class="comment">% % -----参考文献页面</span></span><br><span class="line"><span class="comment">% \begin{frame}{参考文献}</span></span><br><span class="line"><span class="comment">% 	\printbibliography</span></span><br><span class="line"><span class="comment">% \end{frame}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% -----致谢页面</span></span><br><span class="line"><span class="keyword">\begin</span>{frame}[plain]</span><br><span class="line">    <span class="keyword">\vfill</span></span><br><span class="line">    <span class="keyword">\center</span>{<span class="keyword">\Huge</span>{Thanks}}</span><br><span class="line">    <span class="keyword">\vfill</span></span><br><span class="line"><span class="keyword">\end</span>{frame}</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>{document}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="latex模板">Latex模板</h2>
+<figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>{ctexart}</span><br><span class="line"><span class="comment">% \usepackage[utf8]{inputenc}</span></span><br><span class="line"><span class="comment">% \usepackage[fontset=ubuntu]{ctex}</span></span><br><span class="line"><span class="keyword">\usepackage</span>{amsmath}</span><br><span class="line"><span class="keyword">\usepackage</span>{xcolor}</span><br><span class="line"><span class="keyword">\usepackage</span>{color}</span><br><span class="line"><span class="keyword">\usepackage</span>{subfigure}</span><br><span class="line"><span class="keyword">\usepackage</span>{graphicx}</span><br><span class="line"><span class="keyword">\usepackage</span>{geometry}</span><br><span class="line"><span class="keyword">\usepackage</span>{hyperref}</span><br><span class="line"><span class="keyword">\usepackage</span>{authblk}</span><br><span class="line"><span class="keyword">\usepackage</span>{multirow}</span><br><span class="line"><span class="keyword">\usepackage</span>{url}</span><br><span class="line"><span class="keyword">\usepackage</span>{appendix}</span><br><span class="line"><span class="keyword">\usepackage</span>{dsfont}</span><br><span class="line"><span class="keyword">\usepackage</span>{amsfonts}</span><br><span class="line"><span class="keyword">\usepackage</span>{enumitem}</span><br><span class="line"></span><br><span class="line"><span class="keyword">\newcommand</span>{<span class="keyword">\wang</span>}[1]{<span class="keyword">\textcolor</span>{cyan}{[wang: <span class="params">#1</span>]}}</span><br><span class="line"><span class="keyword">\newcommand</span>{<span class="keyword">\zhang</span>}[2]{<span class="keyword">\textcolor</span>{red}{[zhang: <span class="params">#1</span>]}}</span><br><span class="line"></span><br><span class="line"><span class="keyword">\title</span>{标题<span class="keyword">\\</span>[2ex]<span class="keyword">\begin</span>{large}副标题<span class="keyword">\end</span>{large}}</span><br><span class="line"></span><br><span class="line"><span class="keyword">\author</span>{Authors}</span><br><span class="line"><span class="keyword">\date</span>{}</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>{document}</span><br><span class="line"></span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>{示例}</span><br><span class="line"></span><br><span class="line">插入表格<span class="keyword">\ref</span>{tab:resnet}示例</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>{table}[htbp]</span><br><span class="line"><span class="keyword">\scalebox</span>{0.9}{</span><br><span class="line"><span class="keyword">\begin</span>{tabular}{|c|c|c|c|c|}</span><br><span class="line"><span class="keyword">\hline</span></span><br><span class="line">Error Rate <span class="built_in">&amp;</span> Learning Rate 1.0 <span class="built_in">&amp;</span> Learning Rate 0.1 <span class="built_in">&amp;</span> Learning Rate 0.01 <span class="built_in">&amp;</span> Learning Rate 0.0001 <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line">ResNet20   <span class="built_in">&amp;</span> 9.64<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 8.19<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 10.88<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 17.09<span class="keyword">\%</span>              <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line">ResNet32   <span class="built_in">&amp;</span> 8.51<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 7.52<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 10.22<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 16.54<span class="keyword">\%</span>              <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line">ResNet44   <span class="built_in">&amp;</span> 11.00<span class="keyword">\%</span>           <span class="built_in">&amp;</span> 7.24<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 10.01<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 15.84<span class="keyword">\%</span>              <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line">ResNet56   <span class="built_in">&amp;</span> 8.54<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 6.87<span class="keyword">\%</span>            <span class="built_in">&amp;</span> 9.36<span class="keyword">\%</span>             <span class="built_in">&amp;</span> 15.56<span class="keyword">\%</span>              <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>{tabular}}</span><br><span class="line"><span class="keyword">\label</span>{tab:resnet}</span><br><span class="line"><span class="keyword">\caption</span>{Different Layer Number}</span><br><span class="line"><span class="keyword">\end</span>{table}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\wang</span>{This is a tag}<span class="keyword">\cite</span>{Kingma2014AutoEncodingVB}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 引用</span></span><br><span class="line"><span class="keyword">\bibliographystyle</span>{plain}</span><br><span class="line"><span class="keyword">\bibliography</span>{bib.bib}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% %附录</span></span><br><span class="line"><span class="comment">% \section*{附录}</span></span><br><span class="line"><span class="comment">% \appendix</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>{document}</span><br></pre></td></tr></tbody></table></figure>
+</body></html>
+    </div>
+
+    
+    
+    
+      
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/LaTeX/" rel="tag"><i class="fa fa-tag"></i> LaTeX</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/29380/" rel="prev" title="Matlab学习笔记">
+      <i class="fa fa-chevron-left"></i> Matlab学习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/58371/" rel="next" title="记一次Opencv安装Error解决之旅">
+      记一次Opencv安装Error解决之旅 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-number">1.</span> <span class="nav-text">插入图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%A4%9A%E5%BC%A0%E5%9B%BE%E7%89%87"><span class="nav-number">1.1.</span> <span class="nav-text">插入多张图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%BC%A9%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text">列表缩进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">插入代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%9B%AE%E5%BD%95%E6%98%BE%E7%A4%BA%E7%BA%A7%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">设置目录显示级数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%AD%97%E4%BD%93%E6%94%BE%E5%A4%A7"><span class="nav-number">5.</span> <span class="nav-text">局部字体放大</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%B1%85%E4%B8%AD"><span class="nav-number">6.</span> <span class="nav-text">页面居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E6%94%AF%E6%8C%81"><span class="nav-number">7.</span> <span class="nav-text">中文支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E6%89%93%E5%BC%80%E5%85%A8%E5%B1%8F"><span class="nav-number">8.</span> <span class="nav-text">默认打开全屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="nav-number">9.</span> <span class="nav-text">数学公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87"><span class="nav-number">9.1.</span> <span class="nav-text">插入中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E5%AF%B9%E9%BD%90"><span class="nav-number">9.2.</span> <span class="nav-text">公式对齐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E7%8B%AC%E7%9A%84%E5%85%AC%E5%BC%8F%E7%8E%AF%E5%A2%83"><span class="nav-number">9.2.1.</span> <span class="nav-text">单独的公式环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%B5%8C%E7%9A%84%E5%85%AC%E5%BC%8F%E7%8E%AF%E5%A2%83"><span class="nav-number">9.2.2.</span> <span class="nav-text">内嵌的公式环境</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E6%89%B9%E6%B3%A8"><span class="nav-number">10.</span> <span class="nav-text">增加批注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beamer"><span class="nav-number">11.</span> <span class="nav-text">Beamer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84frame%E9%80%89%E9%A1%B9"><span class="nav-number">11.1.</span> <span class="nav-text">结构(Frame)选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E9%A1%B5%E7%A0%81"><span class="nav-number">11.2.</span> <span class="nav-text">增加页码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E7%9B%AE%E5%BD%95"><span class="nav-number">11.3.</span> <span class="nav-text">增加目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%A4%B4%E7%9B%AE%E5%BD%95"><span class="nav-number">11.3.1.</span> <span class="nav-text">开头目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AB%A0%E8%8A%82section%E7%9B%AE%E5%BD%95"><span class="nav-number">11.3.2.</span> <span class="nav-text">章节(section)目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E8%84%9A%E6%B3%A8%E5%BC%95%E7%94%A8"><span class="nav-number">11.4.</span> <span class="nav-text">增加脚注引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E6%96%87%E6%B7%B7%E6%8E%92%E9%97%AE%E9%A2%98"><span class="nav-number">11.5.</span> <span class="nav-text">图文混排问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E7%9A%84beamer%E6%A8%A1%E6%9D%BF"><span class="nav-number">11.6.</span> <span class="nav-text">我的beamer模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#latex%E6%A8%A1%E6%9D%BF"><span class="nav-number">12.</span> <span class="nav-text">Latex模板</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lingjia Meng"
+      src="/uploads/s0mE.jpg">
+  <p class="site-author-name" itemprop="name">Lingjia Meng</p>
+  <div class="site-description" itemprop="description">Less is More</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lingjiameng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lingjiameng" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1574761457@qq.com" title="QQmail → mailto:1574761457@qq.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:menglingjia0214@gmail.com" title="Gmail → mailto:menglingjia0214@gmail.com" rel="noopener" target="_blank"><i class="google fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/a3551736" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;a3551736" rel="noopener" target="_blank"><i class="chain fa-fw"></i></a>
+      </span>
+  </div>
+
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("1/15/2019 12:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lingjia Meng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">80k</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df63eb9372b8a11" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"T4Rf3UmWXRrRET3uJLvw7pkV-gzGzoHsz","app_key":"TDgSBGJrLQavgs9FMBLpw8xl","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 18870,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'jj8JkPaN8iWC8WvasXt8GPXF-gzGzoHsz',
+      appKey     : 'pieyWVlEVwMAiNGtQg93DEGv',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

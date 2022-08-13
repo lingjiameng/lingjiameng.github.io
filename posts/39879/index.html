@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ljmeng.site","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="tips  git 配置完 ssh 后，记得初始化仓库url一定不要用 https，要用git@, 不然每次都要输密码 常用命令  git status,git add, git commit, git push, git tag, git push origin --tags,git add -A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GIT常用命令">
+<meta property="og:url" content="http://ljmeng.site/posts/39879/">
+<meta property="og:site_name" content="ljmeng的个人小站">
+<meta property="og:description" content="tips  git 配置完 ssh 后，记得初始化仓库url一定不要用 https，要用git@, 不然每次都要输密码 常用命令  git status,git add, git commit, git push, git tag, git push origin --tags,git add -A">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://ljmeng.site/posts/39879/1548425990893.png">
+<meta property="article:published_time" content="2019-01-17T07:34:01.000Z">
+<meta property="article:modified_time" content="2019-01-17T07:34:01.000Z">
+<meta property="article:author" content="Lingjia Meng">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ljmeng.site/posts/39879/1548425990893.png">
+
+<link rel="canonical" href="http://ljmeng.site/posts/39879/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>GIT常用命令 | ljmeng的个人小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="ljmeng的个人小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ljmeng的个人小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Less is More</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-lab">
+
+    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>lab</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://ljmeng.site/posts/39879/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/s0mE.jpg">
+      <meta itemprop="name" content="Lingjia Meng">
+      <meta itemprop="description" content="Less is More">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ljmeng的个人小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GIT常用命令
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-17 15:34:01" itemprop="dateCreated datePublished" datetime="2019-01-17T15:34:01+08:00">2019-01-17</time>
+            </span>
+
+          
+            <span id="/posts/39879/" class="post-meta-item leancloud_visitors" data-flag-title="GIT常用命令" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/39879/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/39879/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <html><head></head><body><h2 id="tips">tips</h2>
+<ul>
+<li><p>git 配置完 ssh 后，记得初始化仓库url一定不要用 <code>https</code>，要用<code>git@</code>, 不然每次都要输密码</p></li>
+<li><p>常用命令</p>
+<ul>
+<li><code>git status</code>,<code>git add</code>, <code>git commit</code>, <code>git push</code>, <code>git tag</code>, <code>git push origin --tags</code>,<code>git add -A</code></li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h3 id="显示日志">显示日志</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git diff &lt;file&gt; <span class="comment">#和上次提交对比文件</span></span><br><span class="line">$ git <span class="built_in">log</span> <span class="comment"># 显示提交日志</span></span><br><span class="line">$ git <span class="built_in">log</span> --pretty=oneline <span class="comment">#以简略方式显示日志</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="版本回退">版本回退</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard HEAD^ <span class="comment">#回退到上一个版本，注意**如果当前更改未提交，回退后将无法恢复**</span></span><br><span class="line">$ git reset --hard HEAD^^ <span class="comment">#回退到上上个版本</span></span><br><span class="line">$ git reset --hard HEAD~5 <span class="comment">#回退到之前第5个版本</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="版本错误回退后的恢复">版本错误回退后的恢复</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard 版本号 <span class="comment">#错误回退后，可通过版本号再恢复回来</span></span><br><span class="line">$ git reflog <span class="comment"># 如果想回退不知道版本号，可以用此命令显示</span></span><br></pre></td></tr></tbody></table></figure>
+<figure>
+<img src="/posts/39879/1548425990893.png" alt="1548425990893"><figcaption aria-hidden="true">1548425990893</figcaption>
+</figure>
+<h3 id="撤销文件的更改">撤销文件的更改</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- &lt;file&gt; <span class="comment">#撤销更改,有两种情况，如果add过(即暂存过)，则会回复到暂存的版本</span></span><br><span class="line">						 <span class="comment">#					如果没有暂存过，则会回复到上一次提交的版本</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="撤销文件的删除">撤销文件的删除</h3>
+<p><strong>未提交过的文件是无法恢复的</strong></p>
+<ol type="1">
+<li>如果使用 <code>git rm &lt;file&gt;</code>删除的文件</li>
+</ol>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD &lt;file&gt; <span class="comment">#先使用这条撤销git版本库中的更改</span></span><br><span class="line">$ git checkout -- &lt;file&gt; <span class="comment">#再使用这条恢复删除的文件</span></span><br></pre></td></tr></tbody></table></figure>
+<ol start="2" type="1">
+<li>如果是 <code>rm &lt;file&gt;</code> 或者直接手动删除的文件</li>
+</ol>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- &lt;file&gt; <span class="comment">#恢复删除的文件</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="添加远程仓库">添加远程仓库</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin &lt;url/ssh <span class="built_in">link</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="分支管理">分支管理</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git branch --list <span class="comment">#列出本地所有分支</span></span><br><span class="line">$ git checkout -b dev <span class="comment">#(创建并)切换到dev分支</span></span><br><span class="line">$ git branch -a <span class="comment"># 列出本地分支和远程分支，远程分支会以remote/开头</span></span><br><span class="line">$ git branch -b dev origin/branch_name <span class="comment">#本地创建分支dev并把远程分支branch_name拉取到本地</span></span><br><span class="line">$ git push -u origin dev_local:dev_remote <span class="comment">#本地分支dev_local推送到远程分支dev_remote</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="清除本地缓存">清除本地缓存</h3>
+<p>主要是用于解决<code>.gitignore</code>不生效的问题</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">rm</span> -r --cached .  <span class="comment">#删除本地所有缓存的索引，从而解除对.gitignore指定的文件的跟踪</span></span><br></pre></td></tr></tbody></table></figure>
+<p>另外一种可能是<strong>文件编码</strong>问题，改为<code>UTF-8</code>最为合适，不要是<code>UTF-16</code>等奇怪的编码。</p>
+<h2 id="git安装">git安装</h2>
+<ul>
+<li>System: windows10</li>
+</ul>
+<h2 id="ssh--key配置">ssh -key配置</h2>
+<p>　Git bash 输入<code>cd  ~/.ssh</code> 和 <code>ls</code> 检查电脑本机是否有ssh key. 如有则跳过第一步</p>
+<ol type="1">
+<li><p><strong>进入<code>~</code>路径下，必须保证当前路径在<code>~</code>路径下</strong></p>
+<ul>
+<li><p>在git命令行敲击 <code>ssh-keygen -t rsa -C "xxx@yyy.zzz"</code> //建议写自己真实有效的邮箱地址。<strong>注意：</strong>在敲代码时不要将双引号也敲击进去。</p></li>
+<li><p>然后命令行会出现如下提示：</p>
+<ul>
+<li><code>Enter file in which to save the key (/c/Users/xxxx_000/.ssh/id_rsa):</code> ,直接回车跳过</li>
+<li><code>Enter passphrase (empty for no passphrase):</code> 建议直接回车，即没有密码。也可以输入你的密码，这个密码在你push的时候会要求填写，此外输入的密码是隐藏的</li>
+<li><code>Enter same passphrase again:</code> 确认密码（若第一次是回车，这次就直接回车跳过）</li>
+</ul></li>
+<li><p>完成以上步骤，密钥就生成完成了。剩下提示信息可忽略。</p></li>
+<li><p><code>id_rsa</code> 为密钥 ，<code>id_rsa.pub.</code>为公钥</p></li>
+</ul></li>
+<li><p><strong>添加ssh key 到Github上</strong> 登陆<strong>GitHub</strong> , 点击右上角的<code>“▼”→Settings→SSH kyes→Add SSH key</code>。然后再用文本文档打开<code>c:/Users/xxxx_000/.ssh</code>里面的<code>id_rsa.pub</code>文件，全选复制公钥内容。【也可以在git bash输入<code>cat ~/.ssh/id_rsa.pub</code>获取公钥内容】，之后将公钥粘贴到GitHub中Add an SSH key的key输入框，最后<code>Add Key</code></p></li>
+<li><p><strong>配置账户</strong></p></li>
+</ol>
+<ul>
+<li><p><code>$ git config --global user.name “your_username”</code> #设置用户名</p></li>
+<li><p><code>$ git config --global user.email “your_registered_github_Email”</code>#设置邮箱地址(建议用注册giuhub的邮箱)</p></li>
+</ul>
+<ol start="4" type="1">
+<li><p><strong>测试ssh keys是否设置成功。</strong></p>
+<ul>
+<li><p>git bash 中输入<code>ssh -T git@github.com</code>进行测试，按指示输入即可</p></li>
+<li><p><code>Hi xxx! You've successfully authenticated, but GitHub does not provide shell access.</code> #出现此句话，说明设置成功。</p></li>
+</ul></li>
+</ol>
+<p><strong>到这里，git相关的公钥和账户配置已经完成。</strong></p>
+<h2 id="常用命令">常用命令</h2>
+<ol type="1">
+<li><p><strong>创建仓库（公开）</strong></p>
+<ul>
+<li>点击github右上角的+里面的new repository
+<ul>
+<li>在repository name栏中输入仓库的名称</li>
+<li>description 栏中可以设置仓库的说明</li>
+<li>勾选Initialize this repository with a README ，如果想向GitHub添加手中已有的Git仓库，建议不要勾选</li>
+<li>Add <code>.gitignore</code> 下拉框中选择要使用的框架</li>
+<li>Add a license选择添加许可协议文件</li>
+<li>点击create repository按钮，完成仓库的创建</li>
+</ul></li>
+</ul></li>
+<li><p><strong>克隆之前首先要选择克隆文件的位置（cd）</strong></p>
+<ul>
+<li>clone已有仓库 <code>git clone git@github.com:XXX/yyyy.git</code> //XXX为github的用户名，yyy为仓库名</li>
+</ul></li>
+<li><p><strong>在对应的文件夹中添加新有项</strong></p>
+<ul>
+<li><code>git status</code></li>
+</ul></li>
+<li><p><strong>提交</strong></p>
+<ul>
+<li><code>git add mmm.sss</code> //mmm为文件名称，sss为文件拓展名（常用<code>git add .</code>）</li>
+<li><code>git commit -m "hhh"</code>//hhh为git commit 提交信息，是对这个提交的概述</li>
+<li><code>git log</code>//用于查看提交日志</li>
+<li><code>git push</code>//更新GitHub上的仓库</li>
+</ul></li>
+<li><p><strong>用git创建仓库</strong></p>
+<ul>
+<li><code>mkdir nnn</code> //仓库名</li>
+<li><code>cd hhh</code></li>
+<li><code>git init</code> //初始化仓库</li>
+<li><code>git status</code> //查看仓库状态</li>
+<li><code>touch README.md</code> //创建READEME.md文件</li>
+<li><code>git add ERADME.md</code> //添加ERADME.md至暂存区</li>
+<li><code>git commit -m "hhh"</code> //如果想要提交信息记录的更详细，请不要加 -m</li>
+<li><code>git log --pretty=short</code>//加<code>--pretty=short</code> 只显示提交信息的第一行</li>
+<li><code>git log ggg</code> //<code>ggg</code>是指指定的文件或目录，用于查看指定的目录、文件的日志</li>
+<li><code>git log -p</code> //查看提交所带来的改动</li>
+<li><code>git log -p ggg</code>//查看指定文件的改动</li>
+<li><code>git diff</code>//可以查看工作树，暂存区，最新提交之间的差别</li>
+<li><code>git diff HEAD</code>//查看工作树与最新提交的差别</li>
+</ul></li>
+<li><p><strong>分支操作</strong></p>
+<ul>
+<li><code>git branch</code> //显示分支一览表，同时确认当前所在的分支</li>
+<li><code>git checkout -b aaa</code> //创建名为aaa的分支，并且切换到aaa分支
+<ul>
+<li>（<code>git branch aaa</code> //创建名为aaa的分支; <code>git checkout aaa</code>// 切换到aaa分支）能和<code>git branch -b aaa</code> 得到同样的效果</li>
+</ul></li>
+<li>git checkout - //切换到上一分支</li>
+</ul></li>
+<li><p><strong>合并分支</strong></p>
+<ul>
+<li><p><code>git checkout master</code>//切换到master分支</p></li>
+<li><p><code>git merge --no--ff aaa</code> // 加<code>--no--ff</code> 参数可以在历史记录中明确地记录本次分支的合并</p></li>
+<li><p><code>git log --graph</code> //以图表形式查看分支</p></li>
+</ul></li>
+<li><p><strong>更改提交的操作</strong></p></li>
+</ol>
+<ul>
+<li><code>git reset</code>//回溯历史版本 - <code>git reset --hard</code> //回溯到指定状态，只要提供目标时间点的哈希值</li>
+</ul>
+<ol start="9" type="1">
+<li><p><strong>推进历史</strong></p>
+<ul>
+<li><p><code>git reflog</code> //查看仓库的操作日志，找到要推历史的哈希值</p></li>
+<li><p><code>git checkout master</code></p></li>
+<li><p><code>git reset --hard ddd</code> //ddd为要推进历史的哈希值</p></li>
+<li><p>修改提交信息 <code>git commit --amend</code></p></li>
+<li><p><code>git remote add eee git@github.com:用户名/仓库名.git</code> 添加远程仓库，并将<code>git@github.com: 用户名/仓库名.git</code>远程仓库的名称改为eee</p></li>
+<li><p><code>git push -u eee master</code> //推送至远程仓库 master分支下 -u 参数可以在推送的同时，将eee仓库的master分支设置为本地仓库的当前分支的的upstream（上游）。添加这个参数，将来运行git pull命令从远程仓库获取内容时，本地仓库的这个分支就可以直接从eee的master分支中获取内容</p></li>
+<li><p><code>git checkout -b feature d eee/feature</code> d //获取远程的feature d分支到本地仓库，-b参数后面是本地仓库中新建的仓库的名称</p></li>
+<li><p><code>git pull eee feature d</code> //将本地的feature d分支更新为最新状态</p></li>
+<li><p>在GitHub上面查看两个分支之间的差别，只需要在地址栏中输入<code>http://github.com/用户名/仓库名/分支1...分支2</code></p></li>
+</ul></li>
+<li><p><strong>tag</strong></p>
+<ul>
+<li><code>git tag</code> 显示已有标签</li>
+<li><code>git tag -a v1.4 -m 'my version 1.4'</code> 新建标签</li>
+<li><code>git push origin v1.5</code> 推送标签到服务器</li>
+<li><code>git push origin --tags</code> 一次性推动所有标签</li>
+</ul></li>
+</ol>
+<h2 id="常用指令详解">常用指令详解</h2>
+<h3 id="git-add">git add</h3>
+<p>一次性暂存所有内容，<code>git add *</code> 会有<code>.gitignore</code>提示，以下命令则不会报错:</p>
+<table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git add -A</code></td>
+<td>stages <strong>all changes</strong></td>
+</tr>
+<tr class="even">
+<td><code>git add .</code></td>
+<td>stages new files and modifications, <strong>without deletions</strong></td>
+</tr>
+<tr class="odd">
+<td><code>git add -u</code></td>
+<td>stages modifications and deletions, <strong>without new files</strong></td>
+</tr>
+</tbody>
+</table>
+</body></html>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\2864\" rel="bookmark">Hexo博客搭建与个性化</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/6347/" rel="prev" title="RL学习笔记01">
+      <i class="fa fa-chevron-left"></i> RL学习笔记01
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/39707/" rel="next" title="TensorFlow学习笔记01">
+      TensorFlow学习笔记01 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tips"><span class="nav-number">1.</span> <span class="nav-text">tips</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%97%A5%E5%BF%97"><span class="nav-number">1.1.</span> <span class="nav-text">显示日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="nav-number">1.2.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%94%99%E8%AF%AF%E5%9B%9E%E9%80%80%E5%90%8E%E7%9A%84%E6%81%A2%E5%A4%8D"><span class="nav-number">1.3.</span> <span class="nav-text">版本错误回退后的恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E6%96%87%E4%BB%B6%E7%9A%84%E6%9B%B4%E6%94%B9"><span class="nav-number">1.4.</span> <span class="nav-text">撤销文件的更改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%A0%E9%99%A4"><span class="nav-number">1.5.</span> <span class="nav-text">撤销文件的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">1.6.</span> <span class="nav-text">添加远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-number">1.7.</span> <span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E9%99%A4%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98"><span class="nav-number">1.8.</span> <span class="nav-text">清除本地缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">git安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh--key%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">ssh -key配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3"><span class="nav-number">5.</span> <span class="nav-text">常用指令详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-add"><span class="nav-number">5.1.</span> <span class="nav-text">git add</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lingjia Meng"
+      src="/uploads/s0mE.jpg">
+  <p class="site-author-name" itemprop="name">Lingjia Meng</p>
+  <div class="site-description" itemprop="description">Less is More</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lingjiameng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lingjiameng" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1574761457@qq.com" title="QQmail → mailto:1574761457@qq.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:menglingjia0214@gmail.com" title="Gmail → mailto:menglingjia0214@gmail.com" rel="noopener" target="_blank"><i class="google fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/a3551736" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;a3551736" rel="noopener" target="_blank"><i class="chain fa-fw"></i></a>
+      </span>
+  </div>
+
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("1/15/2019 12:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lingjia Meng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">80k</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df63eb9372b8a11" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"T4Rf3UmWXRrRET3uJLvw7pkV-gzGzoHsz","app_key":"TDgSBGJrLQavgs9FMBLpw8xl","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 18870,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'jj8JkPaN8iWC8WvasXt8GPXF-gzGzoHsz',
+      appKey     : 'pieyWVlEVwMAiNGtQg93DEGv',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
