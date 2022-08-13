@@ -266,14 +266,14 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/tags/Matlab/</loc>
+    <loc>http://ljmeng.site/tags/RL/</loc>
     <lastmod>2022-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ljmeng.site/tags/RL/</loc>
+    <loc>http://ljmeng.site/tags/Matlab/</loc>
     <lastmod>2022-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -457,14 +457,14 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/Matlab/</loc>
+    <loc>http://ljmeng.site/categories/RL/</loc>
     <lastmod>2022-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/RL/</loc>
+    <loc>http://ljmeng.site/categories/Matlab/</loc>
     <lastmod>2022-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -534,13 +534,6 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/opencv/</loc>
-    <lastmod>2022-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://ljmeng.site/categories/vim/</loc>
     <lastmod>2022-08-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -556,6 +549,13 @@
   
   <url>
     <loc>http://ljmeng.site/categories/ssh/</loc>
+    <lastmod>2022-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/categories/opencv/</loc>
     <lastmod>2022-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
