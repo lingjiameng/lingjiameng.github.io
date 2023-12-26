@@ -296,13 +296,6 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/tags/git/</loc>
-    <lastmod>2023-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://ljmeng.site/tags/linux/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -311,6 +304,13 @@
   
   <url>
     <loc>http://ljmeng.site/tags/vim/</loc>
+    <lastmod>2023-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/git/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -352,13 +352,6 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/tags/database/</loc>
-    <lastmod>2023-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://ljmeng.site/tags/ubuntu/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -374,6 +367,13 @@
   
   <url>
     <loc>http://ljmeng.site/tags/baidunetdisk/</loc>
+    <lastmod>2023-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/database/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -422,14 +422,14 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/tags/notes/</loc>
+    <loc>http://ljmeng.site/tags/game/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ljmeng.site/tags/game/</loc>
+    <loc>http://ljmeng.site/tags/notes/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -487,14 +487,14 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/git/</loc>
+    <loc>http://ljmeng.site/categories/linux/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/linux/</loc>
+    <loc>http://ljmeng.site/categories/git/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -515,14 +515,14 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/database/</loc>
+    <loc>http://ljmeng.site/categories/ubuntu/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/ubuntu/</loc>
+    <loc>http://ljmeng.site/categories/database/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -578,14 +578,14 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/notes/</loc>
+    <loc>http://ljmeng.site/categories/game/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/game/</loc>
+    <loc>http://ljmeng.site/categories/notes/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
