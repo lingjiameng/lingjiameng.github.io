@@ -227,7 +227,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -247,22 +247,33 @@
 
       
         <html><head></head><body><p><strong>为何会有这个问题？</strong></p>
-<p>网易笔试很悲催的遇到这个问题，然后脑子生锈用很蠢的循环去写，而且还没写出来，这里我整理了一些其他的办法来优化，争取做到 高效，简洁，优美。</p>
+<p>网易笔试很悲催的遇到这个问题，然后脑子生锈用很蠢的循环去写，而且还没写出来，这里我整理了一些其他的办法来优化，争取做到
+高效，简洁，优美。</p>
 <span id="more"></span>
-<h3 id="方法一-stl的next_permutation">方法一 ：STL的next_permutation</h3>
-<p>使用简洁，优美，但是不够高效，生成全部排列的复杂度大概为 $ O(n!*n) $,每次生成的复杂度为O(n). <a target="_blank" rel="noopener" href="https://zh.cppreference.com/w/cpp/algorithm/next_permutation">next_permutation</a></p>
-<p>注意，生成前需要排序，按照$ &lt; <span class="math inline">\(的顺序排序。或者自定义comp对象。\)</span> (fisrt, last, comp) $</p>
+<h3 id="方法一-stl的next_permutation">方法一
+：STL的next_permutation</h3>
+<p>使用简洁，优美，但是不够高效，生成全部排列的复杂度大概为 $ O(n!*n)
+$,每次生成的复杂度为O(n). <a target="_blank" rel="noopener" href="https://zh.cppreference.com/w/cpp/algorithm/next_permutation">next_permutation</a></p>
+<p>注意，生成前需要排序，按照$ &lt; <span class="math inline">\(的顺序排序。或者自定义comp对象。\)</span> (fisrt,
+last, comp) $</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">cout_nums</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt; &amp;nums)</span></span>{ <span class="comment">//打印数组</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        cout &lt;&lt;nums[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    cout &lt;&lt;endl;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; nums; <span class="comment">//数组</span></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; permutations;<span class="comment">//存储所有排列</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) <span class="comment">//初始化数组</span></span><br><span class="line">        nums.<span class="built_in">push_back</span>(i);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>()); <span class="comment">//按照从小到大的顺序排序</span></span><br><span class="line">    permutations.<span class="built_in">push_back</span>(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>())); </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">next_permutation</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>()))<span class="comment">//生成下一个排列</span></span><br><span class="line">        permutations.<span class="built_in">push_back</span>(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>()));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;permutations.<span class="built_in">size</span>();i++) <span class="comment">//打印所有排列</span></span><br><span class="line">        <span class="built_in">cout_nums</span>(permutations[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="方法二-dfs-递归生成">方法二 DFS 递归生成</h3>
 <p>速度理论最优<span class="math inline">\(O(n!)\)</span>,但实际和方法一速度差不多，都很慢。使用更简洁，不过实现时需要注意trick。</p>
 <p>DFS就是模仿挑选的过程，值得注意的是这里采用<strong>交换来实现的挑选</strong>。</p>
 <p>而为了保证生成不会重复，需要在<strong>额外进行一次交换来进行复位</strong>。</p>
-<p>证明如下： <strong>交换， 递归调用，再交换序列会恢复原状。</strong></p>
+<p>证明如下： <strong>交换，
+递归调用，再交换序列会恢复原状。</strong></p>
 <p>对于长度为1的情况: 只有一次循环，且只和本身交换一次，显然成立</p>
-<p>​ c == 第一次交换 ==&gt; c =&gt; 递归调用(生成结果) == 第二次交换 ==&gt; c 显然符合</p>
+<p>​ c == 第一次交换 ==&gt; c =&gt; 递归调用(生成结果) == 第二次交换
+==&gt; c 显然符合</p>
 <p>假设长度为n是会恢复原状,则长度n+1时</p>
-<p>​ <span class="math inline">\(x, (n_1,..,n_n)\)</span> == 第一次交换(与元素<span class="math inline">\(n_k\)</span>交换) ==&gt; <span class="math inline">\(n_x， (n_1,n_2,...,n_{k-1},x,n_{k+1},...,n_n)\)</span></p>
-<p>==&gt; 递归调用，长度为n的情况，结束后序列显然不变 == 第二次交换(将元素<span class="math inline">\(n_k\)</span> 放回) ==&gt; 得到原序列 <span class="math inline">\(x, (n_1,..,n_n)\)</span></p>
+<p>​ <span class="math inline">\(x, (n_1,..,n_n)\)</span> ==
+第一次交换(与元素<span class="math inline">\(n_k\)</span>交换) ==&gt;
+<span class="math inline">\(n_x，
+(n_1,n_2,...,n_{k-1},x,n_{k+1},...,n_n)\)</span></p>
+<p>==&gt; 递归调用，长度为n的情况，结束后序列显然不变 ==
+第二次交换(将元素<span class="math inline">\(n_k\)</span> 放回) ==&gt;
+得到原序列 <span class="math inline">\(x, (n_1,..,n_n)\)</span></p>
 <p><strong>数列每次打乱都会恢复原状，因此每一次挑选都不会重复</strong>，不过结果是无序的</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">perm</span><span class="params">(<span class="type">int</span> depth, vector&lt;<span class="type">int</span>&gt; &amp;nums, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;perms)</span></span>{</span><br><span class="line">    <span class="keyword">if</span> (depth &gt;= nums.<span class="built_in">size</span>()){</span><br><span class="line">        perms.<span class="built_in">push_back</span>(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>()));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = depth; i &lt; nums.<span class="built_in">size</span>(); i++){</span><br><span class="line">    	<span class="comment">//注意这里是两次交换，第一次交换挑选，第二次交换复位</span></span><br><span class="line">        <span class="built_in">swap</span>(nums[depth], nums[i]);</span><br><span class="line">        <span class="built_in">perm</span>(depth + <span class="number">1</span>, nums, perms);</span><br><span class="line">        <span class="built_in">swap</span>(nums[depth], nums[i]);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">perm</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;perms)</span></span>{</span><br><span class="line">    <span class="comment">//对nums内的数字生成全排列</span></span><br><span class="line">    <span class="built_in">perm</span>(<span class="number">0</span>, nums, perms);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="使用方法如下">使用方法如下：</h4>
@@ -361,7 +372,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-stl%E7%9A%84next_permutation"><span class="nav-number">1.</span> <span class="nav-text">方法一 ：STL的next_permutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-dfs-%E9%80%92%E5%BD%92%E7%94%9F%E6%88%90"><span class="nav-number">2.</span> <span class="nav-text">方法二 DFS 递归生成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%A6%82%E4%B8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">使用方法如下：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-stl%E7%9A%84next_permutation"><span class="nav-number">1.</span> <span class="nav-text">方法一
+：STL的next_permutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-dfs-%E9%80%92%E5%BD%92%E7%94%9F%E6%88%90"><span class="nav-number">2.</span> <span class="nav-text">方法二 DFS 递归生成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%A6%82%E4%B8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">使用方法如下：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -466,7 +478,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

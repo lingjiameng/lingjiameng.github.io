@@ -247,22 +247,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <html><head></head><body><p>遇到 <code>OpenCV Error: Unspecified error (The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Carbon support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script)</code> 的解决办法</p>
+        <html><head></head><body><p>遇到
+<code>OpenCV Error: Unspecified error (The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Carbon support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script)</code>
+的解决办法</p>
 <span id="more"></span>
 <h2 id="按提示修复">按提示修复</h2>
-<p>根据提示，这种情况应该是缺少依赖，安装 <code>libgtk2.0-dev</code> 和 <code>pkg-config</code> 之后重新安装即可（源码安装的卸载后重新编译安装，第三方安装直接卸载后在重装）</p>
+<p>根据提示，这种情况应该是缺少依赖，安装 <code>libgtk2.0-dev</code> 和
+<code>pkg-config</code>
+之后重新安装即可（源码安装的卸载后重新编译安装，第三方安装直接卸载后在重装）</p>
 <p>在我的系统 <code>Ubuntu18.04</code> 下，命令如下:</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libgtk2.0-dev pkg-config</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="提示不生效">提示不生效</h2>
 <p>但是按照提示修复后仍然不生效，在我用的sdk编译后仍然会报相同的错误。</p>
 <p>怎么办呢？，这时候我突然发现报错的路径很奇特</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt/conda/conda-bld/opencv-suite_1530789967746/work/modules/highgui/src/windows.cpp</span><br></pre></td></tr></tbody></table></figure>
-<p>这个路径居然是 <code>conda</code> 的，而我明明是使用源码编译安装的。</p>
-<p>这时候我猛然反应过来，之前曾经使用<code>conda install opencv</code>安装过 OpenCV, 并且当时也报的是这个错。因为当时并没有修好这个错误，而是使用的<code>conda install opencv-python</code>解决的。因此这是一个环境变量的问题，<strong>系统没有识别我现在安装的包，而是识别了我之前安装错误的包</strong></p>
+<p>这个路径居然是 <code>conda</code>
+的，而我明明是使用源码编译安装的。</p>
+<p>这时候我猛然反应过来，之前曾经使用<code>conda install opencv</code>安装过
+OpenCV,
+并且当时也报的是这个错。因为当时并没有修好这个错误，而是使用的<code>conda install opencv-python</code>解决的。因此这是一个环境变量的问题，<strong>系统没有识别我现在安装的包，而是识别了我之前安装错误的包</strong></p>
 <h2 id="最终解决办法">最终解决办法</h2>
 <p>1.查找系统中是否有 <code>OpenCV</code></p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list | grep opencv</span><br></pre></td></tr></tbody></table></figure>
-<p>2.在<code>conda</code>和<code>python</code>中查找是否有 <code>OpenCV</code></p>
+<p>2.在<code>conda</code>和<code>python</code>中查找是否有
+<code>OpenCV</code></p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda list |  grep opencv</span><br><span class="line">pip list | grep opencv</span><br></pre></td></tr></tbody></table></figure>
 <p>3.将查找到的名为<code>libopencv</code>,<code>py-opencv</code>的包删除重装</p>
 <p>卸载命令如下</p>
@@ -384,7 +392,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -473,7 +481,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

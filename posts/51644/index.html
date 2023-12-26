@@ -259,24 +259,30 @@
 <p>每个马匹编号为$ A_i,i {1,2,3,4,5}$, <span class="math inline">\(A_i\)</span> 代表这匹马在A组中名次为 <span class="math inline">\(i\)</span> .</p>
 <p>比赛结果如下 :（箭头指示快慢顺序）</p>
 <figure>
-<img src="/posts/51644/1572011965311.png" alt="1572011965311"><figcaption aria-hidden="true">1572011965311</figcaption>
+<img src="/posts/51644/1572011965311.png" alt="1572011965311">
+<figcaption aria-hidden="true">1572011965311</figcaption>
 </figure>
 <h2 id="step-2">Step 2</h2>
-<p>这一步比较关键，网上流传的答案大多是把 <strong>所有跑第一的马</strong>（即A1,B1,C1,D1,E1）拉出来比较.而实际上把所<strong>所有跑第二的马</strong> 拉出来比较是更好的选择。选第二名进行比较的好处在于可以排除14匹马，而选第一名只能排除10匹马。</p>
+<p>这一步比较关键，网上流传的答案大多是把
+<strong>所有跑第一的马</strong>（即A1,B1,C1,D1,E1）拉出来比较.而实际上把所<strong>所有跑第二的马</strong>
+拉出来比较是更好的选择。选第二名进行比较的好处在于可以排除14匹马，而选第一名只能排除10匹马。</p>
 <p><strong>如果比较跑第一的马，那么得到的结果是这样的</strong>：</p>
 <figure>
-<img src="/posts/51644/1572014395248.png" alt="1572014395248"><figcaption aria-hidden="true">1572014395248</figcaption>
+<img src="/posts/51644/1572014395248.png" alt="1572014395248">
+<figcaption aria-hidden="true">1572014395248</figcaption>
 </figure>
 <p>虚线包围的黄色区域是被排除的不可能进前五的马</p>
 <p>红线圈出的马A1则是唯一确定进前五并且为所有马中跑的最快的马。</p>
 <p><strong>如果比较跑第二的马，得到的结果如下</strong>：</p>
 <figure>
-<img src="/posts/51644/1572014706022.png" alt="1572014706022"><figcaption aria-hidden="true">1572014706022</figcaption>
+<img src="/posts/51644/1572014706022.png" alt="1572014706022">
+<figcaption aria-hidden="true">1572014706022</figcaption>
 </figure>
 <p><strong>明显排除了更多的马</strong></p>
 <h2 id="step-3">Step 3</h2>
 <p>完成第一步和第二步后，我们已经比较了<strong>6次</strong>，只需要在不确定的10匹马中找出前四即可完成任务。</p>
-<p>而这一步比较的方案是一个估计出的结果，在这一步中将 <strong>A3, B2, C1, D1, E1</strong> 拉出来进行比较即可。</p>
+<p>而这一步比较的方案是一个估计出的结果，在这一步中将 <strong>A3, B2,
+C1, D1, E1</strong> 拉出来进行比较即可。</p>
 <p>我们着重以<strong>B2</strong>和<strong>A3</strong>的名次进行分情况讨论：</p>
 <p>好吧，这里讨论挺复杂的。。。但是只要分析一下就可以得出（<strong>最多再额外比较两次即可选出前五</strong>）的结论。</p>
 <h2 id="结论">结论</h2>
@@ -288,6 +294,12 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\16754\" rel="bookmark">逆波兰表达式</a></div>
+    </li>
+  </ul>
 
 
       <footer class="post-footer">
@@ -389,7 +401,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -478,7 +490,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

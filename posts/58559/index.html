@@ -227,14 +227,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
+              <span>10k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
+              <span>10 分钟</span>
             </span>
 
         </div>
@@ -274,7 +274,8 @@
 <h3 id="插入中文">插入中文</h3>
 <p><code>\mbox{拒绝}</code>或者<code>\text{拒绝}</code></p>
 <figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span> P<span class="keyword">\{</span><span class="keyword">\mbox</span>{拒绝} <span class="keyword">\mid</span> H<span class="built_in">_</span>{0} <span class="keyword">\mbox</span>{为真}<span class="keyword">\}</span> = <span class="keyword">\alpha</span> <span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"><span class="comment">%或者</span></span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span> P<span class="keyword">\{</span><span class="keyword">\text</span>{拒绝} <span class="keyword">\mid</span> H<span class="built_in">_</span>{0} <span class="keyword">\text</span>{为真}<span class="keyword">\}</span> = <span class="keyword">\alpha</span> <span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></tbody></table></figure>
-<p><span class="math display">\[ P\{\mbox{拒绝} \mid H_{0} \mbox{为真}\} = \alpha \]</span></p>
+<p><span class="math display">\[ P\{\mbox{拒绝} \mid H_{0} \mbox{为真}\}
+= \alpha \]</span></p>
 <h3 id="公式对齐">公式对齐</h3>
 <h4 id="单独的公式环境">单独的公式环境</h4>
 <p><strong>align</strong> 每行是一个公式，都会独立编号</p>
@@ -285,7 +286,8 @@
 <p>如果报错缺少包，可以用<code>\usepackage{amsmath}</code></p>
 <p><strong>aligned</strong></p>
 <figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{equation}</span><br><span class="line">&nbsp;<span class="keyword">\left</span>.<span class="keyword">\begin</span>{aligned}</span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; B'<span class="built_in">&amp;</span>=-<span class="keyword">\partial</span>&nbsp;<span class="keyword">\times</span>&nbsp;E,<span class="keyword">\\</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; E'<span class="built_in">&amp;</span>=<span class="keyword">\partial</span>&nbsp;<span class="keyword">\times</span>&nbsp;B - 4<span class="keyword">\pi</span>&nbsp;j,</span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp;<span class="keyword">\end</span>{aligned}</span><br><span class="line">&nbsp;<span class="keyword">\right</span><span class="keyword">\}</span></span><br><span class="line">&nbsp;<span class="keyword">\qquad</span>&nbsp;<span class="keyword">\text</span>{Maxwell's equations}</span><br><span class="line"><span class="keyword">\end</span>{equation}</span><br></pre></td></tr></tbody></table></figure>
-<p><strong>split</strong> 多个公式拆分成多行，但是它整体还只是一个公式。</p>
+<p><strong>split</strong>
+多个公式拆分成多行，但是它整体还只是一个公式。</p>
 <figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{equation}</span><br><span class="line"> <span class="keyword">\begin</span>{split}</span><br><span class="line"> (a + b)<span class="built_in">^</span>4</span><br><span class="line">   <span class="built_in">&amp;</span>= (a + b)<span class="built_in">^</span>2 (a + b)<span class="built_in">^</span>2      <span class="keyword">\\</span></span><br><span class="line">   <span class="built_in">&amp;</span>= (a<span class="built_in">^</span>2 + 2ab + b<span class="built_in">^</span>2)</span><br><span class="line">      (a<span class="built_in">^</span>2 + 2ab + b<span class="built_in">^</span>2)        <span class="keyword">\\</span></span><br><span class="line">   <span class="built_in">&amp;</span>= a<span class="built_in">^</span>4 + 4a<span class="built_in">^</span>3b + 6a<span class="built_in">^</span>2b<span class="built_in">^</span>2 + 4ab<span class="built_in">^</span>3 + b<span class="built_in">^</span>4</span><br><span class="line"> <span class="keyword">\end</span>{split}</span><br><span class="line"><span class="keyword">\end</span>{equation}</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="增加批注">增加批注</h2>
 <p>可以在多人合作时使用</p>
@@ -295,9 +297,12 @@
 <p>使用代码不正常时可以尝试加入<code>\begin{frame}[fragile]</code></p>
 <h3 id="结构frame选项">结构(Frame)选项</h3>
 <ul>
-<li><code>\frame[plain]{\frametitle{}..}</code> 适用于如 本页 ( 第 10 页 ) 所用的 plane 结构!</li>
-<li><code>[containsverbatim]</code> 适用于使用 verbatim 环境和 <code>\verb</code>命令。</li>
-<li><code>[allowframebreaks]</code> 适用于一张幻灯片放不下内容时自动分开。</li>
+<li><code>\frame[plain]{\frametitle{}..}</code> 适用于如 本页 ( 第 10 页
+) 所用的 plane 结构!</li>
+<li><code>[containsverbatim]</code> 适用于使用 verbatim 环境和
+<code>\verb</code>命令。</li>
+<li><code>[allowframebreaks]</code>
+适用于一张幻灯片放不下内容时自动分开。</li>
 <li><code>[shrink]</code> 适用于缩小内容充满一张幻灯片。</li>
 <li><code>[squeeze]</code> 适用于挤压垂直空间。</li>
 </ul>
@@ -430,7 +435,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -519,7 +524,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

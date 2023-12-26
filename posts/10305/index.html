@@ -252,30 +252,40 @@
 <h2 id="配置环境变量">配置环境变量</h2>
 <ol type="1">
 <li>新建<code>JAVA_HOME</code>环境变量，变量值为jdk安装目录，我的电脑上为<code>C:\Program Files\Java\jdk1.8.0_144</code></li>
-<li>新建 <code>CLASSPATH</code> 变量，变量值填写 <code>.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</code></li>
-<li><code>Path</code> 变量增加路径 <code>%JAVA_HOME%\bin</code> 和 <code>%JAVA_HOME%\jre\bin</code></li>
+<li>新建 <code>CLASSPATH</code> 变量，变量值填写
+<code>.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</code></li>
+<li><code>Path</code> 变量增加路径 <code>%JAVA_HOME%\bin</code> 和
+<code>%JAVA_HOME%\jre\bin</code></li>
 </ol>
 <blockquote>
-<p><strong>PS</strong> 以后安装其他版本jdk时只需修改<code>JAVA_HOME</code>环境变量即可</p>
+<p><strong>PS</strong>
+以后安装其他版本jdk时只需修改<code>JAVA_HOME</code>环境变量即可</p>
 </blockquote>
 <span id="more"></span>
 <h2 id="检查java安装情况">检查java安装情况</h2>
-<p>打开cmd，输入命令 <code>java -version</code> 和 <code>javac</code> 检查</p>
+<p>打开cmd，输入命令 <code>java -version</code> 和 <code>javac</code>
+检查</p>
 <p><strong>至此 Java 配置完成</strong></p>
 <h2 id="常用命令">常用命令</h2>
-<p><strong>解决中文输出乱码问题</strong> 文件保存为<code>utf-8</code>编码</p>
-<p>编译命令 <code>javac -encoding UTF-8 xx.java</code> 运行命令 <code>java '-Dfile.encoding=UTF-8' xx</code> 注意第二条命令的参数要加单引号</p>
+<p><strong>解决中文输出乱码问题</strong>
+文件保存为<code>utf-8</code>编码</p>
+<p>编译命令 <code>javac -encoding UTF-8 xx.java</code> 运行命令
+<code>java '-Dfile.encoding=UTF-8' xx</code>
+注意第二条命令的参数要加单引号</p>
 <blockquote>
-<p>PS 在PowerShell中仍然很可能不正常，可使用chcp命令查看默认编码，若是936(GBK),则需要修改为65001(UTF-8),执行命令<code>chcp 65001</code>即可</p>
+<p>PS
+在PowerShell中仍然很可能不正常，可使用chcp命令查看默认编码，若是936(GBK),则需要修改为65001(UTF-8),执行命令<code>chcp 65001</code>即可</p>
 </blockquote>
-<p><code>.java</code> 源代码 -①-&gt; <code>.class</code> jvm字节码 -②-&gt; 虚拟机运行及最后打印时的编码</p>
+<p><code>.java</code> 源代码 -①-&gt; <code>.class</code> jvm字节码
+-②-&gt; 虚拟机运行及最后打印时的编码</p>
 <ul>
 <li><p>①：jdk使用系统默认编码对java文件进行解码并编译，Win:GBK</p></li>
 <li><p>②：运行时使用系统默认编码进行打印 Win:GBK</p></li>
 </ul>
 <h3 id="对于跨包引用">对于跨包引用</h3>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 文件树</span><br><span class="line">package_sample</span><br><span class="line">└─ src</span><br><span class="line">    ├─ hong</span><br><span class="line">    │  └─ Person.java</span><br><span class="line">    │  ming</span><br><span class="line">    │  └─ Person.java</span><br><span class="line">    └─ mr</span><br><span class="line">       └─ jun</span><br><span class="line">          └─ Arrays.java</span><br></pre></td></tr></tbody></table></figure>
-<p>包之间可以相互引用 例如<code>hong.Person</code>,<code>mr.jun.Arrays</code></p>
+<p>包之间可以相互引用
+例如<code>hong.Person</code>,<code>mr.jun.Arrays</code></p>
 <p>编译时</p>
 <ol type="1">
 <li>首先<code>cd ./src</code>,切换至src根目录</li>
@@ -283,7 +293,8 @@
 <li>编译需要用到的文件,<code>javac -d ../bin -enconding UTF-8 ./hong/Person.java  ./ming/Person.java  ./mr/jun/Arrays.java</code></li>
 <li>编译得到输出文件，文件树如下 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 输出文件的文件树</span><br><span class="line">package_sample</span><br><span class="line">└─ bin</span><br><span class="line">   ├─ hong</span><br><span class="line">   │  └─ Person.class</span><br><span class="line">   │  ming</span><br><span class="line">   │  └─ Person.class</span><br><span class="line">   └─ mr</span><br><span class="line">      └─ jun</span><br><span class="line">         └─ Arrays.class</span><br></pre></td></tr></tbody></table></figure></li>
 <li>执行时，先切换至<code>bin</code>，<code>cd ../bin</code></li>
-<li>执行主程序 <code>java '-Dfile.encoding=UTF-8' hong.Person</code></li>
+<li>执行主程序
+<code>java '-Dfile.encoding=UTF-8' hong.Person</code></li>
 </ol>
 <p><strong>总结，所有命令如下</strong> </p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译</span></span><br><span class="line"><span class="built_in">cd</span> ./src</span><br><span class="line"><span class="built_in">mkdir</span> ../bin</span><br><span class="line">javac -d ../bin -enconding UTF-8 ./hong/Person.java  ./ming/Person.java  ./mr/jun/Arrays.java</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行</span></span><br><span class="line"><span class="built_in">cd</span> ../bin</span><br><span class="line">java <span class="string">'-Dfile.encoding=UTF-8'</span> hong.Person</span><br></pre></td></tr></tbody></table></figure><p></p>
 </body></html>
@@ -400,7 +411,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -489,7 +500,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

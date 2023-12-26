@@ -228,7 +228,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>761</span>
+              <span>751</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -267,8 +267,10 @@
 <li><p><code>os.path.abspath(__file__)</code>,所执行文件绝对路径,包含文件名</p>
 <p>输出: <code>/media/Study/tmp/testdir/foo.py</code></p></li>
 <li><p><code>os.path.dirname(__file__)</code>,所执行文件相对路径,不包含文件名</p>
-<p>输出: <code>testdir</code> ,如果目录相对跳转层级大于一层 会有<code>./</code>,<code>../</code>等前缀,小于一层输出为空</p></li>
-<li><p>在所运行文件所在目录创建文件方法: 即在<code>tmp/testdir</code>目录下创建文件</p>
+<p>输出: <code>testdir</code> ,如果目录相对跳转层级大于一层
+会有<code>./</code>,<code>../</code>等前缀,小于一层输出为空</p></li>
+<li><p>在所运行文件所在目录创建文件方法:
+即在<code>tmp/testdir</code>目录下创建文件</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">newfilename = <span class="string">"foo.txt"</span> <span class="comment">#所要创建的文件名</span></span><br><span class="line">newdir = os.path.dirname(__file__) <span class="comment">#获取相对路径</span></span><br><span class="line">newpath = os.path.join(newdir,newfilename) <span class="comment">#连接相对路径和文件名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(newpath) <span class="keyword">as</span> file: <span class="comment">#创建文件</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果:</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tmp</span><br><span class="line">|--testdir</span><br><span class="line">     |-- foo.py</span><br><span class="line">     |-- foo.txt</span><br></pre></td></tr></tbody></table></figure></li>
@@ -391,7 +393,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,7 +482,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

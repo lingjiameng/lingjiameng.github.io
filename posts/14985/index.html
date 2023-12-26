@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"ljmeng.site","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Python中print(&#39;a&#39; &lt; &#39;b&#39; &lt; &#39;c&#39;)的运行结果是什么呢？  1552928102571">
+  <meta name="description" content="Python中print(&#39;a&#39; &lt; &#39;b&#39; &lt; &#39;c&#39;)的运行结果是什么呢？   1552928102571">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python链式比较">
 <meta property="og:url" content="http://ljmeng.site/posts/14985/">
 <meta property="og:site_name" content="ljmeng的个人小站">
-<meta property="og:description" content="Python中print(&#39;a&#39; &lt; &#39;b&#39; &lt; &#39;c&#39;)的运行结果是什么呢？  1552928102571">
+<meta property="og:description" content="Python中print(&#39;a&#39; &lt; &#39;b&#39; &lt; &#39;c&#39;)的运行结果是什么呢？   1552928102571">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://ljmeng.site/posts/14985/1552928102571.png">
 <meta property="og:image" content="http://ljmeng.site/posts/14985/1552928182146.png">
@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>994</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,7 +252,8 @@
       
         <html><head></head><body><p>Python中<code>print('a' &lt; 'b' &lt; 'c')</code>的运行结果是什么呢？</p>
 <figure>
-<img src="/posts/14985/1552928102571.png" alt="1552928102571"><figcaption aria-hidden="true">1552928102571</figcaption>
+<img src="/posts/14985/1552928102571.png" alt="1552928102571">
+<figcaption aria-hidden="true">1552928102571</figcaption>
 </figure>
 <span id="more"></span>
 <h2 id="part-1">Part 1</h2>
@@ -261,13 +262,15 @@
 <p><strong>答案是True</strong></p>
 <p>这段代码在Python2 和Python3上的运行结果是相同的，均为True.</p>
 <figure>
-<img src="/posts/14985/1552928182146.png" alt="1552928182146"><figcaption aria-hidden="true">1552928182146</figcaption>
+<img src="/posts/14985/1552928182146.png" alt="1552928182146">
+<figcaption aria-hidden="true">1552928182146</figcaption>
 </figure>
 <h2 id="part-2">Part 2</h2>
 <p>但是这是为啥呢？</p>
 <p>直觉猜测这是按照运算优先级进行的运算，即：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'a'</span> &lt; <span class="string">'b'</span> &lt; <span class="string">'c'</span>)</span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line"><span class="built_in">print</span>((<span class="string">'a'</span> &lt; <span class="string">'b'</span>) &lt; <span class="string">'c'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<p>但这段代码在Python2和Python3中的运行结果是不同的：Python2运行结果仍为<code>True</code>. Python3中则运行出错，错误信息如下：</p>
+<p>但这段代码在Python2和Python3中的运行结果是不同的：Python2运行结果仍为<code>True</code>.
+Python3中则运行出错，错误信息如下：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>((<span class="string">'a'</span>&lt;<span class="string">'b'</span>)&lt;<span class="string">'c'</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">TypeError: unorderable types: <span class="built_in">bool</span>() &lt; <span class="built_in">str</span>()</span><br></pre></td></tr></tbody></table></figure>
 <p>从这里我们可以看出两点：</p>
 <ul>
@@ -279,7 +282,10 @@
 <p>那问题来了，上述的思路不行，那实际到底发生了啥呢？</p>
 <p>经过谷歌搜索，我终于在<a target="_blank" rel="noopener" href="https://docs.python.org/2.3/ref/comparisons.html">官方文档</a>中找到了相关说明:</p>
 <blockquote>
-<p>if a, b, c, ..., y, z are expressions and opa, opb, ..., opy are comparison operators, then a opa b opb c ...y opy z is equivalent to a opa b <code>and</code> b opb c <code>and</code> ... y opy z, except that each expression is evaluated at most once.</p>
+<p>if a, b, c, ..., y, z are expressions and opa, opb, ..., opy are
+comparison operators, then a opa b opb c ...y opy z is equivalent to a
+opa b <code>and</code> b opb c <code>and</code> ... y opy z, except that
+each expression is evaluated at most once.</p>
 </blockquote>
 <p>这段话的意思就是</p>
 <p>如果有一个比较如下 ：</p>
@@ -288,7 +294,8 @@
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a'</span> &lt; <span class="string">'b'</span> <span class="keyword">and</span> <span class="string">'b'</span> &lt; <span class="string">'c'</span> <span class="keyword">and</span> <span class="string">'c'</span> &lt; ...</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="final">Final</h2>
 <p>至此问题终于得到了解决</p>
-<p><code>'a' &lt; 'b' &lt; 'c'</code> 被Python翻译为了 <code>'a' &lt; 'b' and 'b' &lt; 'c'</code>.</p>
+<p><code>'a' &lt; 'b' &lt; 'c'</code> 被Python翻译为了
+<code>'a' &lt; 'b' and 'b' &lt; 'c'</code>.</p>
 <p>所以结果理所当然的为<code>True</code>喽!</p>
 </body></html>
     </div>
@@ -408,7 +415,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -497,7 +504,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

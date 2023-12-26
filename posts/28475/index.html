@@ -292,14 +292,19 @@
 <li>读已提交 Read Committed</li>
 <li>读未提交 Read Uncommitted</li>
 </ul>
-<p>而这四个概念的定义是通过何时释放锁以及何时释放锁来定义的(也有用时间戳机制来描述的): <strong>注意下列加锁操作都是要做什么操作，就加对应操作的锁，比方说读操作就加读锁，而不需要考虑接下来要进行写操作而在读的时候加写锁的情况。</strong></p>
-<p><strong>1. 串行化</strong> 最高的隔离级别。对于基于锁的并发控制数据库实现：串行化要求<strong>读锁和写锁(根据所选数据获取)在事务结束的时候释放</strong>。同时当使用带有范围条件<code>where</code>的<code>SELECT</code>语句查询时，要求增加相应的范围锁（例如使用<code>select * from t where val&gt;10 and val &lt; 15</code>查询后，会增加相应的<strong>范围锁</strong>，其他事务插入<code>val</code>在这个范围的数据是不被允许的）。</p>
-<p><strong>2.可重复读</strong> 对于基于锁的并发控制数据库实现：要求<strong>读锁和写锁(根据所选数据获取)在事务结束的时候释放</strong>。但是<strong>不管理范围锁</strong>。</p>
-<p><strong>3.读已提交</strong> 对于基于锁的并发控制数据库实现：要<strong>写锁(根据所选数据获取)在事务结束的时候释放，读锁在<code>select</code>执行结束后立即释放</strong>。这一级别同样不管理范围锁。</p>
+<p>而这四个概念的定义是通过何时释放锁以及何时释放锁来定义的(也有用时间戳机制来描述的):
+<strong>注意下列加锁操作都是要做什么操作，就加对应操作的锁，比方说读操作就加读锁，而不需要考虑接下来要进行写操作而在读的时候加写锁的情况。</strong></p>
+<p><strong>1. 串行化</strong>
+最高的隔离级别。对于基于锁的并发控制数据库实现：串行化要求<strong>读锁和写锁(根据所选数据获取)在事务结束的时候释放</strong>。同时当使用带有范围条件<code>where</code>的<code>SELECT</code>语句查询时，要求增加相应的范围锁（例如使用<code>select * from t where val&gt;10 and val &lt; 15</code>查询后，会增加相应的<strong>范围锁</strong>，其他事务插入<code>val</code>在这个范围的数据是不被允许的）。</p>
+<p><strong>2.可重复读</strong>
+对于基于锁的并发控制数据库实现：要求<strong>读锁和写锁(根据所选数据获取)在事务结束的时候释放</strong>。但是<strong>不管理范围锁</strong>。</p>
+<p><strong>3.读已提交</strong>
+对于基于锁的并发控制数据库实现：要<strong>写锁(根据所选数据获取)在事务结束的时候释放，读锁在<code>select</code>执行结束后立即释放</strong>。这一级别同样不管理范围锁。</p>
 <p><strong>4.读未提交</strong> 对于这一层级，完全不加锁。</p>
 <p>到这里我们就可以得出如下结论的表格：</p>
 <figure>
-<img src="/posts/28475/70034e19.png" alt="70034e19.png"><figcaption aria-hidden="true">70034e19.png</figcaption>
+<img src="/posts/28475/70034e19.png" alt="70034e19.png">
+<figcaption aria-hidden="true">70034e19.png</figcaption>
 </figure>
 <p>其实这个表格中一些问题的避免是和封锁方法是对应的：</p>
 <ul>
@@ -319,7 +324,8 @@
 <p>封锁协议是通用的协议，是编程人员编码或者设计的规范。</p>
 <p>它们的定义如下:</p>
 <blockquote>
-<p>一级封锁协议: 事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。</p>
+<p>一级封锁协议:
+事务T在修改数据R之前必须先对其加X锁，直到事务结束才释放。</p>
 </blockquote>
 <blockquote>
 <p>二级封锁协议：一级封锁协议加上事务T在读取数据R之前必须先对其加S锁，读完后方可释放S锁。</p>
@@ -328,7 +334,9 @@
 <p>三级封锁协议：一级封锁协议加上事务T在读取数据R之前必须先对其加S锁，直到事务结束才释放。</p>
 </blockquote>
 <blockquote>
-<p>两阶段封锁协议：① 在对任何数据进行读、写操作之前，首先要申请并获得对该数据的封锁。② 在释放一个封锁之后，事务不再申请和获得其它任何封锁。</p>
+<p>两阶段封锁协议：①
+在对任何数据进行读、写操作之前，首先要申请并获得对该数据的封锁。②
+在释放一个封锁之后，事务不再申请和获得其它任何封锁。</p>
 </blockquote>
 <blockquote>
 <p>一次封锁协议： 一次将所有要使用的数据全部加锁</p>
@@ -339,24 +347,30 @@
 <li>二级封锁协议 =&gt; 读已提交隔离级别</li>
 <li>三级封锁协议 =&gt; 可重复读隔离级别</li>
 </ul>
-<p><strong>但实际上并不存在对应关系</strong> 根本原因出现在封锁协议中的<strong>在数据修改前加锁</strong>，指的是<code>Read(A)</code>和<code>Write(A)</code>绑定在一起考虑，虽然具体的修改操作发生在<code>Write(A)</code>时，但是在<code>Read(A)</code>的时候就要加上写锁。而数据库的隔离级别不会提前加锁。 另外两者的主体也是不一样的，在隔离层级策略下会出现锁升级的情况（这其实也是因为数据库无法知道操作者接下来的操作是什么导致的，如果知道可能在一开始就会加上写锁保护）。</p>
+<p><strong>但实际上并不存在对应关系</strong>
+根本原因出现在封锁协议中的<strong>在数据修改前加锁</strong>，指的是<code>Read(A)</code>和<code>Write(A)</code>绑定在一起考虑，虽然具体的修改操作发生在<code>Write(A)</code>时，但是在<code>Read(A)</code>的时候就要加上写锁。而数据库的隔离级别不会提前加锁。
+另外两者的主体也是不一样的，在隔离层级策略下会出现锁升级的情况（这其实也是因为数据库无法知道操作者接下来的操作是什么导致的，如果知道可能在一开始就会加上写锁保护）。</p>
 <h2 id="一些额外的问题">一些额外的问题</h2>
 <h3 id="为什么封锁协议和隔离级别看着定义一样实际效果却不同">为什么封锁协议和隔离级别看着定义一样，实际效果却不同？</h3>
-<p>在封锁协议中<strong>Read(A)和Write(A)要绑定认为是一个写操作，开始就要加写锁</strong>， 对于之前提到的四种数据一致性问题，我们可以发现：</p>
+<p>在封锁协议中<strong>Read(A)和Write(A)要绑定认为是一个写操作，开始就要加写锁</strong>，
+对于之前提到的四种数据一致性问题，我们可以发现：</p>
 <ul>
 <li>一级封锁协议<del>什么都不能保证</del> 保证不丢失修改</li>
 <li>二级封锁协议可以保证不读脏数据 也保证不丢失修改</li>
 <li>三级封锁协议则可以保证不读脏数据，可重复读，不丢失修改，<del>但是不能解决幻读</del></li>
 </ul>
-<p>对于一二级封锁协议的反例如下: <img src="/posts/28475/5d745f01.png" alt="5d745f01.png"> <strong>而这个反例也是不存在的</strong>，因为封锁协议要求T1在<code>Read(A)</code>的时候就要加写锁。</p>
+<p>对于一二级封锁协议的反例如下: <img src="/posts/28475/5d745f01.png" alt="5d745f01.png">
+<strong>而这个反例也是不存在的</strong>，因为封锁协议要求T1在<code>Read(A)</code>的时候就要加写锁。</p>
 <h3 id="part-2">Part 2</h3>
 <p>此外由于存在幻读现象，那么三级封锁协议和两阶段封锁协议是否还是可串行化的？</p>
-<p><strong>仍然是可串行化的</strong>，幻读本质是封锁粒度的问题，不过当我们理解封锁协议加锁时，应该更好的理解封锁协议中所说的封锁操作对象的含义，随着访问对象的粒度而调整封锁对象的粒度，比如 <strong><code>Select</code>范围选择时，应该对表加锁</strong>。</p>
+<p><strong>仍然是可串行化的</strong>，幻读本质是封锁粒度的问题，不过当我们理解封锁协议加锁时，应该更好的理解封锁协议中所说的封锁操作对象的含义，随着访问对象的粒度而调整封锁对象的粒度，比如
+<strong><code>Select</code>范围选择时，应该对表加锁</strong>。</p>
 <h3 id="part-3">Part 3</h3>
 <p>封锁协议之间的包含关系？ <img src="/posts/28475/e23f91e5.png" alt="e23f91e5.png"></p>
 <h2 id="参考资料">参考资料</h2>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Isolation_(database_systems)">Isolation (database systems) - Wikipedia</a></p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Isolation_(database_systems)">Isolation
+(database systems) - Wikipedia</a></p>
 </blockquote>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%89%E7%BA%A7%E5%8A%A0%E9%94%81%E5%8D%8F%E8%AE%AE/1148391">三级加锁协议_百度百科</a></p>
@@ -469,7 +483,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -558,7 +572,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

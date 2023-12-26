@@ -228,7 +228,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>17k</span>
+              <span>16k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -254,7 +254,10 @@
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> themes/next</span><br><span class="line">$ curl -s https://api.github.com/repos/theme-next/hexo-theme-next/releases/latest | grep tarball_url | <span class="built_in">cut</span> -d <span class="string">'"'</span> -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br></pre></td></tr></tbody></table></figure>
 <span id="more"></span>
 <h2 id="配置博客和主题设置">配置博客和主题设置</h2>
-<p>修改主题设置文件,并根据其中的说明<strong>做相应的安装工作</strong> 这一步是最繁琐的，要有耐心，下面开始逐项说明： <strong>PS: 为方便，只需要修改配置文件的改动省略</strong> <strong>git clone全部都要到主题NexT根目录下运行</strong></p>
+<p>修改主题设置文件,并根据其中的说明<strong>做相应的安装工作</strong>
+这一步是最繁琐的，要有耐心，下面开始逐项说明： <strong>PS:
+为方便，只需要修改配置文件的改动省略</strong> <strong>git
+clone全部都要到主题NexT根目录下运行</strong></p>
 <h3 id="头像">头像</h3>
 <p>1.头像放入<code>blog/themes/next/source/images</code>文件夹</p>
 <h3 id="推荐">推荐</h3>
@@ -267,11 +270,13 @@
 <h3 id="本地搜索">本地搜索</h3>
 <p>5.本地搜索安装<code>npm install hexo-generator-searchdb --save</code></p>
 <h3 id="pdf支持">pdf支持</h3>
-<p>6.支持pdf <code>git clone https://github.com/theme-next/theme-next-pdf source/lib/pdf</code></p>
+<p>6.支持pdf
+<code>git clone https://github.com/theme-next/theme-next-pdf source/lib/pdf</code></p>
 <p>示例：</p>
 <p>TOFIX: 手机上不能正常显示....</p>
 <h3 id="fancybox">fancybox</h3>
-<p>7.安装fancybox <code>git clone https://github.com/theme-next/theme-next-fancybox3 source/lib/fancybox</code></p>
+<p>7.安装fancybox
+<code>git clone https://github.com/theme-next/theme-next-fancybox3 source/lib/fancybox</code></p>
 <h3 id="显示图片">显示图片</h3>
 <p>8.安装显示图片插件<code>npm install hexo-asset-image-fixed --save</code></p>
 <h3 id="加载进度条">加载进度条</h3>
@@ -280,7 +285,8 @@
 <h3 id="公式支持">公式支持</h3>
 <p>1.安装配置<code>hexo-render-pandoc</code></p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line"><span class="comment">#or npm un hexo-renderer-kramed --save (如果安装的是kramed的话)</span></span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-pandoc --save</span><br></pre></td></tr></tbody></table></figure>
-<p>前去官网安装pandoc，并保证能在命令行中运行 <code>pandoc -v</code>.</p>
+<p>前去官网安装pandoc，并保证能在命令行中运行
+<code>pandoc -v</code>.</p>
 <p>2.文章的Front-matter里打开mathjax开关(一定要打开，不然不会渲染)</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: index.html</span><br><span class="line">date: 2016-12-28 21:01:30</span><br><span class="line">tags:</span><br><span class="line">mathjax: true</span><br><span class="line">--</span><br></pre></td></tr></tbody></table></figure>
 <p>至此可以完美渲染公式</p>
@@ -296,7 +302,9 @@ a &amp;= b + c \\
 \end{equation}\label{eq2}
 \]</span></p>
 <figure class="highlight latex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span>state <span class="keyword">\overset</span>{NN}{<span class="keyword">\rightarrow</span>}<span class="keyword">\left</span><span class="keyword">\{</span> <span class="keyword">\begin</span>{aligned} <span class="built_in">&amp;</span>action1 <span class="keyword">\_</span> value <span class="keyword">\\</span> <span class="built_in">&amp;</span>action2 <span class="keyword">\_</span> value <span class="keyword">\\</span> <span class="built_in">&amp;</span>...<span class="keyword">\end</span>{aligned} <span class="keyword">\right</span>.<span class="built_in">$</span></span><br></pre></td></tr></tbody></table></figure>
-<p><span class="math inline">\(state \overset{NN}{\rightarrow}\left\{ \begin{aligned} &amp;action1 \_ value \\ &amp;action2 \_ value \\ &amp;...\end{aligned} \right.\)</span></p>
+<p><span class="math inline">\(state \overset{NN}{\rightarrow}\left\{
+\begin{aligned} &amp;action1 \_ value \\ &amp;action2 \_ value \\
+&amp;...\end{aligned} \right.\)</span></p>
 <h3 id="为标题增加序号">为标题增加序号</h3>
 <p>修改<code>文件位置:themes\next\source\css\_custom\custom.styl</code></p>
 <figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文章标题增加序号</span></span><br><span class="line"><span class="selector-class">.post-body</span> {<span class="attribute">counter-reset</span>:section}</span><br><span class="line"><span class="selector-class">.post-body</span> h2{<span class="attribute">counter-reset</span>:sub-section}</span><br><span class="line"><span class="selector-class">.post-body</span> h3{<span class="attribute">counter-reset</span>:composite}</span><br><span class="line"><span class="selector-class">.post-body</span> h4{<span class="attribute">counter-reset</span>:detail}</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h2</span>:before{<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:section}</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h3</span>:before{<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:sub-section}</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h4</span>:before{<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">"."</span> <span class="built_in">counter</span>(composite) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:composite}</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h5</span>:before{<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">"."</span> <span class="built_in">counter</span>(composite) <span class="string">"."</span> <span class="built_in">counter</span>(detail) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:detail}</span><br></pre></td></tr></tbody></table></figure>
@@ -342,11 +350,11 @@ a &amp;= b + c \\
 <figure class="highlight stylus"><figcaption><span>hemes/next/source/css/_variables/custom.styl</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$font</span>-family-monospace    = consolas, Menlo, <span class="variable">$font</span>-family-base, monospace</span><br><span class="line"><span class="variable">$font</span>-family-monospace    = <span class="built_in">get_font_family</span>(<span class="string">'codes'</span>), consolas, Menlo, <span class="variable">$font</span>-family-base, monospace <span class="keyword">if</span> <span class="built_in">get_font_family</span>(<span class="string">'codes'</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable">$font</span>-family-chinese      = <span class="string">"Linux Biolinum"</span></span><br><span class="line"><span class="variable">$font</span>-family-base         = <span class="variable">$font</span>-family-chinese, <span class="built_in">get_font_family</span>(<span class="string">'global'</span>), sans-serif <span class="keyword">if</span> <span class="built_in">get_font_family</span>(<span class="string">'global'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="修改过的文件">修改过的文件</h2>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装hexo</span></span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br><span class="line">hexo new page about</span><br><span class="line"><span class="comment"># 安装next</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 资源文件</span></span><br><span class="line">blog/source/fonts <span class="comment">#增加字体</span></span><br><span class="line">themes/next/source/images <span class="comment">#增加头像 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置文件</span></span><br><span class="line">blog/_config.yml</span><br><span class="line">blog/themes/next/_config.yml</span><br><span class="line">blog/themes/next/layout/_custom/sidebar.swig <span class="comment">#计时功能</span></span><br><span class="line">themes/next/source/css/_variables/custom.styl <span class="comment">#字体调整</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># npm安装博客根目录操作</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-related-popular-posts --save</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br><span class="line">npm install hexo-asset-image-fixed --save</span><br><span class="line">npm install hexo-generator-feed --save</span><br><span class="line">npm uninstall hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-index-pin-top --save</span><br><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-abbrlink --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br><span class="line">npm install hexo-symbols-count-time --save</span><br><span class="line"></span><br><span class="line"><span class="comment">#主题插件git下载，切入主题目录下操作</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-needmoreshare2 <span class="built_in">source</span>/lib/needsharebutton</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-pdf <span class="built_in">source</span>/lib/pdf</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-fancybox3 <span class="built_in">source</span>/lib/fancybox</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-pace <span class="built_in">source</span>/lib/pace</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-han <span class="built_in">source</span>/lib/Han</span><br><span class="line"></span><br><span class="line"><span class="comment">#源文件</span></span><br><span class="line">themes/next/layout/_macro/post.swig</span><br><span class="line"><span class="comment"># - rel="tag"&gt;#</span></span><br><span class="line"><span class="comment"># + rel="tag"&gt;&lt;i class="fa fa-tag"&gt;&lt;/i&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<section class="footnotes" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1" role="doc-endnote"><p><a target="_blank" rel="noopener" href="https://io-oi.me/beautiful/share/2018/12/11/noto-serif-sc-added-on-google-fonts.html" class="uri">https://io-oi.me/beautiful/share/2018/12/11/noto-serif-sc-added-on-google-fonts.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>https://blog.csdn.net/qwerty200696/article/details/79010629<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><a target="_blank" rel="noopener" href="https://io-oi.me/beautiful/share/2018/12/11/noto-serif-sc-added-on-google-fonts.html" class="uri">https://io-oi.me/beautiful/share/2018/12/11/noto-serif-sc-added-on-google-fonts.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://blog.csdn.net/qwerty200696/article/details/79010629<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body></html>
@@ -464,7 +472,7 @@ a &amp;= b + c \\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -553,7 +561,7 @@ show_date_time();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">81k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
