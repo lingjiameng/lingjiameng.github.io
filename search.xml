@@ -2307,11 +2307,9 @@ solutions to (ax^2 + bx + c = 0) and they are <span class="math display">\[x = {
 <h3 id="hexo内置标签与标记">Hexo内置标签与标记</h3>
 <h4 id="居中引用">居中引用</h4>
 <blockquote class="blockquote-center">
-            <i class="fa fa-quote-left"></i>
-            <p>Less is More</p>
+<p>Less is More</p>
 
-            <i class="fa fa-quote-right"></i>
-          </blockquote>
+</blockquote>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">{% cq %}<span class="title class_">Less</span> is <span class="title class_">More</span>{% endcq %}</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="next自带tag">NexT自带tag</h4>
 <p><a target="_blank" rel="noopener" href="https://theme-next.org/docs/tag-plugins/">详细介绍</a></p>
@@ -2410,7 +2408,7 @@ solutions to (ax^2 + bx + c = 0) and they are <span class="math display">\[x = {
 <p>或者,将pdf放入同级目录后</p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">{% pdf ./bash_freshman.<span class="property">pdf</span> %}</span><br></pre></td></tr></tbody></table></figure>
 <p>示例</p>
-<div class="pdfobject-container" data-target="./LaTeX_Beamer_Presentations.pdf" data-height="500px"></div>
+<div class="pdf-container" data-target="./LaTeX_Beamer_Presentations.pdf" data-height="500px"></div>
 <h3 id="博文压缩">博文压缩</h3>
 <p>使用<code>hexo-neat</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 和
 <code>hexo-imagemin</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>,安装指令如下:</p>

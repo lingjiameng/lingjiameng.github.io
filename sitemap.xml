@@ -324,6 +324,13 @@
   </url>
   
   <url>
+    <loc>http://ljmeng.site/tags/hexo/</loc>
+    <lastmod>2023-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://ljmeng.site/tags/python/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -338,14 +345,14 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/tags/hexo/</loc>
+    <loc>http://ljmeng.site/tags/python-%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ljmeng.site/tags/python-%E8%AF%AD%E6%B3%95/</loc>
+    <loc>http://ljmeng.site/tags/database/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -367,13 +374,6 @@
   
   <url>
     <loc>http://ljmeng.site/tags/baidunetdisk/</loc>
-    <lastmod>2023-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/database/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -501,13 +501,6 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/python/</loc>
-    <lastmod>2023-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://ljmeng.site/categories/hexo/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -515,7 +508,7 @@
   </url>
   
   <url>
-    <loc>http://ljmeng.site/categories/ubuntu/</loc>
+    <loc>http://ljmeng.site/categories/python/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -523,6 +516,13 @@
   
   <url>
     <loc>http://ljmeng.site/categories/database/</loc>
+    <lastmod>2023-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/categories/ubuntu/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -550,6 +550,13 @@
   </url>
   
   <url>
+    <loc>http://ljmeng.site/categories/algorithm/</loc>
+    <lastmod>2023-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://ljmeng.site/categories/vim/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -565,13 +572,6 @@
   
   <url>
     <loc>http://ljmeng.site/categories/ssh/</loc>
-    <lastmod>2023-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/categories/algorithm/</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
