@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ljmeng的个人小站</title>
+  <title>岂曰无衣的博客</title>
   
   <subtitle>Less is More</subtitle>
   <link href="http://ljmeng.site/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://ljmeng.site/</id>
   
   <author>
-    <name>Lingjia Meng</name>
+    <name>岂曰无衣</name>
     
   </author>
   
@@ -101,7 +101,7 @@
 :: Download Connector/J&lt;/a&gt; 下载时，Windows 用户选择
 &lt;code&gt;Platform Independent&lt;/code&gt;
 版本，下载好后，直接解压，并将&lt;code&gt;mysql-connector-java-x.x.x.jar&lt;/code&gt;复制到
-jre 目录 &lt;code&gt;C:\Program Files\Java\jre1.8.0_144\lib\ext&lt;/code&gt; 下.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</summary>
+jre 目录 &lt;code&gt;C:&#92;Program Files&#92;Java&#92;jre1.8.0_144&#92;lib&#92;ext&lt;/code&gt; 下.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</summary>
     
     
     
@@ -127,11 +127,11 @@ jre 目录 &lt;code&gt;C:\Program Files\Java\jre1.8.0_144\lib\ext&lt;/code&gt; �
 &lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener&quot; href=&quot;https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html&quot;&gt;官方下载链接&lt;/a&gt;，下载对应版本后，双击安装即可&lt;/p&gt;
 &lt;h2 id=&quot;配置环境变量&quot;&gt;配置环境变量&lt;/h2&gt;
 &lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;新建&lt;code&gt;JAVA_HOME&lt;/code&gt;环境变量，变量值为jdk安装目录，我的电脑上为&lt;code&gt;C:\Program Files\Java\jdk1.8.0_144&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新建&lt;code&gt;JAVA_HOME&lt;/code&gt;环境变量，变量值为jdk安装目录，我的电脑上为&lt;code&gt;C:&#92;Program Files&#92;Java&#92;jdk1.8.0_144&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;新建 &lt;code&gt;CLASSPATH&lt;/code&gt; 变量，变量值填写
-&lt;code&gt;.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Path&lt;/code&gt; 变量增加路径 &lt;code&gt;%JAVA_HOME%\bin&lt;/code&gt; 和
-&lt;code&gt;%JAVA_HOME%\jre\bin&lt;/code&gt;&lt;/li&gt;
+&lt;code&gt;.;%JAVA_HOME%&#92;lib;%JAVA_HOME%&#92;lib&#92;tools.jar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Path&lt;/code&gt; 变量增加路径 &lt;code&gt;%JAVA_HOME%&#92;bin&lt;/code&gt; 和
+&lt;code&gt;%JAVA_HOME%&#92;jre&#92;bin&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt;
@@ -258,7 +258,7 @@ jre 目录 &lt;code&gt;C:\Program Files\Java\jre1.8.0_144\lib\ext&lt;/code&gt; �
     
     
     <summary type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h2 id=&quot;插入图片&quot;&gt;插入图片&lt;/h2&gt;
-&lt;figure class=&quot;highlight latex&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;\begin&lt;/span&gt;{figure}[H] &lt;span class=&quot;comment&quot;&gt;%H为当前位置，!htb为忽略美学标准，htbp为浮动图形&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;\centering&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;%图片居中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;\includegraphics&lt;/span&gt;[width=0.7&lt;span class=&quot;keyword&quot;&gt;\textwidth&lt;/span&gt;,height=0.7&lt;span class=&quot;keyword&quot;&gt;\textheight&lt;/span&gt;]{图片路径} &lt;span class=&quot;comment&quot;&gt;%插入图片，[]中设置图片大小，{}中是图片文件名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;% \caption{Main name 2} %最终文档中希望显示的图片标题&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;\label&lt;/span&gt;{remix} &lt;span class=&quot;comment&quot;&gt;%用于文内引用的标签&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;\end&lt;/span&gt;{figure}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt;</summary>
+&lt;figure class=&quot;highlight latex&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;&#92;begin&lt;/span&gt;{figure}[H] &lt;span class=&quot;comment&quot;&gt;%H为当前位置，!htb为忽略美学标准，htbp为浮动图形&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;&#92;centering&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;%图片居中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;&#92;includegraphics&lt;/span&gt;[width=0.7&lt;span class=&quot;keyword&quot;&gt;&#92;textwidth&lt;/span&gt;,height=0.7&lt;span class=&quot;keyword&quot;&gt;&#92;textheight&lt;/span&gt;]{图片路径} &lt;span class=&quot;comment&quot;&gt;%插入图片，[]中设置图片大小，{}中是图片文件名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;% &#92;caption{Main name 2} %最终文档中希望显示的图片标题&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;&#92;label&lt;/span&gt;{remix} &lt;span class=&quot;comment&quot;&gt;%用于文内引用的标签&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;&#92;end&lt;/span&gt;{figure}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/body&gt;&lt;/html&gt;</summary>
     
     
     
