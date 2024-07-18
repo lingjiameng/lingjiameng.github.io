@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ljmeng.site/posts/16549/</loc>
+    
+    <lastmod>2024-07-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://ljmeng.site/posts/16754/</loc>
     
     <lastmod>2023-12-26</lastmod>
@@ -247,7 +256,7 @@
 
   <url>
     <loc>http://ljmeng.site/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -255,182 +264,189 @@
   
   <url>
     <loc>http://ljmeng.site/tags/c/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/java/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/LaTeX/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/Matlab/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/RL/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/tf/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/git/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/linux/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/vim/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/git/</loc>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/bash/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/hexo/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/python/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/python-%E8%AF%AD%E6%B3%95/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/ubuntu/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/baidunetdisk/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/database/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/path/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/python-%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/ubuntu/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/baidunetdisk/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/web/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/database/</loc>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/NER/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/ssh/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/tags/scp/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/next/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/ssh/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/tags/scp/</loc>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/opencv/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/algorithm/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/notes/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/tags/game/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -439,154 +455,161 @@
   
   <url>
     <loc>http://ljmeng.site/categories/c/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/java/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/LaTeX/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/c/algorithm/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/Matlab/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/RL/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/tf/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/categories/git/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/linux/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/categories/git/</loc>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/hexo/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/python/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/ubuntu/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/categories/web/</loc>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/database/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/NER/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/remote-access/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/opencv/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://ljmeng.site/categories/algorithm/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/vim/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/bash/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/ssh/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljmeng.site/categories/algorithm/</loc>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/notes/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://ljmeng.site/categories/game/</loc>
-    <lastmod>2023-12-27</lastmod>
+    <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
