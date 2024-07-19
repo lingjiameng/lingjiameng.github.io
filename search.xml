@@ -3,8 +3,12 @@
   <entry>
     <title>Hexo支持本地图片指定宽度</title>
     <url>/posts/80727/</url>
-    <content><![CDATA[<html><head></head><body><h1 id="hexo支持本地图片指定宽度">Hexo支持本地图片指定宽度</h1>
-<p>在<code>hexo-asset-image-fixed</code>​插件基础上修改，拓展markdown语法，只需在图片后增加<code>?700</code>​即可将图片宽度指定为700px，可以轻松对图片进行放大缩小，而且不影响markdown本地打开编辑时的预览。配置Hexo-Next主题和FancyBox食用效果更佳。</p>
+    <content><![CDATA[<html><head></head><body><ul>
+<li>在<code>hexo-asset-image-fixed</code>本体图片​插件基础上修改，拓展markdown语法</li>
+<li>只需在图片路径后增加<code>?700</code>​即可将图片宽度指定为700px，轻松对图片进行放大缩小</li>
+<li>而且不影响markdown本地打开编辑时的预览。配合Hexo-Next主题和FancyBox食用效果更佳</li>
+</ul>
+<span id="more"></span>
 <h2 id="简介-introduction">简介 Introduction</h2>
 <p>项目地址 <a target="_blank" rel="noopener" href="https://github.com/lingjiameng/hexo-image-assistant">hexo-image-assistant</a></p>
 <p>Hexo 图片助手。自动为 hexo 中的资源图片提供绝对路径。扩展的 markdown
@@ -55,8 +59,8 @@ CoreJa</li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>web</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2594,8 +2598,8 @@ Download Now</span> </a>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>hexo</tag>
+        <tag>git</tag>
       </tags>
   </entry>
 </search>
