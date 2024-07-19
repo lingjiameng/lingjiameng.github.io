@@ -6,7 +6,7 @@
   <link href="http://ljmeng.site/atom.xml" rel="self"/>
   
   <link href="http://ljmeng.site/"/>
-  <updated>2024-07-19T14:00:00.000Z</updated>
+  <updated>2024-07-19T17:00:00.000Z</updated>
   <id>http://ljmeng.site/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo支持本地图片指定宽度</title>
+    <link href="http://ljmeng.site/posts/80727/"/>
+    <id>http://ljmeng.site/posts/80727/</id>
+    <published>2024-07-19T17:00:00.000Z</published>
+    <updated>2024-07-19T17:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<html><head></head><body><h1 id="hexo支持本地图片指定宽度">Hexo支持本地图片指定宽度</h1><p>在<code>hexo-asset-image-fixed</code>​插件基础上修改，拓展markdown语法，只需在图片后增加<code>?700</code>​即可将图片宽度指定为700px，可以轻松对图片进行放大缩小，而且不影响markdown本地打开编辑时的预览。配置Hexo-Next主题和FancyBox食用效果更佳。</p><h2 id="简介-introduction">简介 Introduction</h2><p>项目地址 <a target="_blank" rel="noopener" href="https://github.com/lingjiameng/hexo-image-assistant">hexo-image-assistant</a></p><p>Hexo 图片助手。自动为 hexo 中的资源图片提供绝对路径。扩展的 markdown语法支持轻松指定图片宽度，同时不影响正常的markdown阅读。</p><p>Hexo image assistant. Give asset image in hexo a absolutely pathautomatically. Extended markdown syntax supports easily specifying imagewidth.</p><h2 id="参考-reference">参考 Reference</h2><blockquote><p><a target="_blank" rel="noopener" href="https://github.com/xcodebuild/hexo-asset-image">hexo-asset-image</a></p></blockquote><blockquote><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-asset-image-fixed">hexo-asset-image-fixed</a></p></blockquote><blockquote><p><a target="_blank" rel="noopener" href="https://bobcn.github.io/2018/03/24/hexo_reset_image_size/">Hexo中扩展Markdown语法设置图片的大小</a></p></blockquote><h2 id="使用方法-usage">使用方法 Usage</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-image-assistant --save</span><br></pre></td></tr></tbody></table></figure><h2 id="示例-example">示例 Example</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">note</span><br><span class="line">├── apppicker.jpg</span><br><span class="line">├── logo.jpg</span><br><span class="line">└── rules.jpg</span><br><span class="line">note.md</span><br></pre></td></tr></tbody></table></figure><p>确保 <code>_config.yml</code>​ 中的<code>post_asset_folder: true</code>​ 为真。</p><p>只需使用 <code>![logo](note/logo.jpg?400)</code>​ 即可插入<code>logo.jpg</code>​ 并将宽度设置为 <code>400</code>​。</p><hr><p>Make sure <code>post_asset_folder: true</code>​ in your<code>_config.yml</code>​.</p><p>Just use <code>![logo](note/logo.jpg?400)</code>​ to insert<code>logo.jpg</code>​ and set width to <code>400</code>​.</p><h2 id="历史-history">历史 History</h2><ul><li>2024-07-20：扩展 markdown 语法支持指定图像宽度 by ljmeng</li><li>2019-04-07：修复标题包含 http/https 等关键字 by CoreJa</li><li>2018-04-18：支持 hexo-abbrlink by xcodebuild</li></ul><hr><ul><li>2024-07-20: Extended markdown syntax supports specifying image widthby ljmeng</li><li>2019-04-07: fix title contains a keyword like http/https byCoreJa</li><li>2018-04-18: support hexo-abbrlink by xcodebuild</li></ul><p>‍</p></body></html>]]></content>
+    
+    
+    <summary type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</summary>
+    
+    
+    
+    <category term="hexo" scheme="http://ljmeng.site/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://ljmeng.site/tags/hexo/"/>
+    
+    <category term="web" scheme="http://ljmeng.site/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>【教程】Lucky配合Cloudflare更安全的访问局域网服务</title>
@@ -523,36 +546,6 @@ jre 目录 &lt;code&gt;C:&#92;Program Files&#92;Java&#92;jre1.8.0_144&#92;lib&#9
     <category term="linux" scheme="http://ljmeng.site/tags/linux/"/>
     
     <category term="vim" scheme="http://ljmeng.site/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python新建文件夹与路径获取</title>
-    <link href="http://ljmeng.site/posts/31233/"/>
-    <id>http://ljmeng.site/posts/31233/</id>
-    <published>2019-01-31T10:05:38.000Z</published>
-    <updated>2019-01-31T10:05:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<html><head></head><body><h2 id="python-新建文件夹">python 新建文件夹</h2><p><code>os.mkdir()</code> 和 <code>os.makedirs()</code></p><ul><li><p>使用 <code>os.mkdir("log/flylog")</code>,报错如下:</p><p><code>FileNotFoundError: [WinError 3] 系统找不到指定的路径</code></p></li><li><p>发现是<code>mkdir()</code>函数的问题，换成<code>os.makedirs()</code>就ok了。</p></li><li><p>原因是因为<code>os.mkdir()</code>只能创建一级目录。而<code>os.makedirs()</code>可以创建多级目录。</p></li></ul><span id="more"></span><h2 id="获取路径并在相应路径创建文件">获取路径并在相应路径创建文件</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmp</span><br><span class="line">|--testdir</span><br><span class="line">     |-- foo.py</span><br></pre></td></tr></tbody></table></figure><p>在tmp目录下运行<code>python testdir/foo.py</code></p><ul><li><p><code>__file__</code> 所执行文件相对路径,包含文件名</p><p>输出: <code>testdir/foo.py</code></p></li><li><p><code>os.getcwd()</code> 当前工作绝对路径,即程序运行所在目录</p><p>输出: <code>/media/Study/tmp</code></p></li><li><p><code>os.path.abspath(__file__)</code>,所执行文件绝对路径,包含文件名</p><p>输出: <code>/media/Study/tmp/testdir/foo.py</code></p></li><li><p><code>os.path.dirname(__file__)</code>,所执行文件相对路径,不包含文件名</p><p>输出: <code>testdir</code> ,如果目录相对跳转层级大于一层会有<code>./</code>,<code>../</code>等前缀,小于一层输出为空</p></li><li><p>在所运行文件所在目录创建文件方法:即在<code>tmp/testdir</code>目录下创建文件</p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">newfilename = <span class="string">"foo.txt"</span> <span class="comment">#所要创建的文件名</span></span><br><span class="line">newdir = os.path.dirname(__file__) <span class="comment">#获取相对路径</span></span><br><span class="line">newpath = os.path.join(newdir,newfilename) <span class="comment">#连接相对路径和文件名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(newpath) <span class="keyword">as</span> file: <span class="comment">#创建文件</span></span><br><span class="line"><span class="keyword">pass</span></span><br></pre></td></tr></tbody></table></figure><p>运行结果:</p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tmp</span><br><span class="line">|--testdir</span><br><span class="line">     |-- foo.py</span><br><span class="line">     |-- foo.txt</span><br></pre></td></tr></tbody></table></figure></li></ul></body></html>]]></content>
-    
-    
-    <summary type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h2 id=&quot;python-新建文件夹&quot;&gt;python 新建文件夹&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;os.mkdir()&lt;/code&gt; 和 &lt;code&gt;os.makedirs()&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;使用 &lt;code&gt;os.mkdir(&quot;log/flylog&quot;)&lt;/code&gt;,报错如下:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;FileNotFoundError: [WinError 3] 系统找不到指定的路径&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;发现是&lt;code&gt;mkdir()&lt;/code&gt;函数的问题，换成&lt;code&gt;os.makedirs()&lt;/code&gt;就ok了。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;原因是因为&lt;code&gt;os.mkdir()&lt;/code&gt;只能创建一级目录。而&lt;code&gt;os.makedirs()&lt;/code&gt;可以创建多级目录。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</summary>
-    
-    
-    
-    <category term="python" scheme="http://ljmeng.site/categories/python/"/>
-    
-    
-    <category term="python" scheme="http://ljmeng.site/tags/python/"/>
-    
-    <category term="path" scheme="http://ljmeng.site/tags/path/"/>
     
   </entry>
   
