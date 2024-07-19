@@ -28,10 +28,10 @@
 <meta property="og:site_name" content="岂曰无衣的博客">
 <meta property="og:description" content="使用Lucky可以比较安全的访问本地服务，但是仍然存在需要加端口访问、IP会暴露的问题。本教程旨在使用Cloudflare和Lucky配合解决这些问题 预期效果  能够不加端口号，通过子域名访问局域网的各项服务 公网流量全部HTTPS加密，保证信息传输时不会泄露 IP地址受CF服务器的保护，域名解析出来的IP为CF服务器的IP">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719001105-5oapzj1.png?300">
+<meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719001105-5oapzj1.png">
 <meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719002758-e6r4fl9.png">
-<meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719013817-ex7hu6f.png?300">
-<meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719020600-4rt1tdj.png?300">
+<meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719013817-ex7hu6f.png">
+<meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719020600-4rt1tdj.png">
 <meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719015135-7b2c6gs.png">
 <meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719015756-zk1kzcu.png">
 <meta property="og:image" content="http://ljmeng.site/posts/16549/image-20240719020916-nmz3fae.png">
@@ -42,7 +42,7 @@
 <meta property="article:author" content="岂曰无衣">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://ljmeng.site/posts/16549/image-20240719001105-5oapzj1.png?300">
+<meta name="twitter:image" content="http://ljmeng.site/posts/16549/image-20240719001105-5oapzj1.png">
 
 
 <link rel="canonical" href="http://ljmeng.site/posts/16549/">
@@ -312,7 +312,7 @@
 </ul>
 <h3 id="第一步配置lucky动态域名">第一步：配置Lucky动态域名</h3>
 <p>打开Lucky的动态域名管理页面，选择添加任务，配置好后的结果如下面左图</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/posts/16549/image-20240719001105-5oapzj1.png?300" alt="image" width="300"></div><div class="group-picture-column"><img src="/posts/16549/image-20240719002758-e6r4fl9.png" alt="image"></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/posts/16549/image-20240719001105-5oapzj1.png" alt="image"></div><div class="group-picture-column"><img src="/posts/16549/image-20240719002758-e6r4fl9.png" alt="image"></div></div></div>
 <ol type="1">
 <li><p>关于左图中①处的Token，需要点击蓝色文字跳转CF操作，记得先右上角先切简体中文，之后按照右图中A,B,C的顺序操作，其中B处选择你要使用的域名。其余确认或继续即可创建好token</p></li>
 <li><p>关于左图中②处的类型，根据你的公网ip类型选择，一般为ipv4</p></li>
@@ -325,28 +325,28 @@
 <li><strong>到【DNS】-【记录】里面把DNS解析的代理打开，这样才能保护IP。</strong>
 这里只需配置一次即可，后续会保持代理启用状态</li>
 </ol>
-<p>​<img src="/posts/16549/image-20240719013817-ex7hu6f.png?300" alt="image" width="300">​</p>
+<p>​<img src="/posts/16549/image-20240719013817-ex7hu6f.png" alt="image" width="700">​</p>
 <ol start="2" type="1">
 <li>到【SSL/TLS】-【概述】切换加密方式为 <code>完全（严格）</code>​</li>
 </ol>
-<p>​<img src="/posts/16549/image-20240719020600-4rt1tdj.png?300" alt="image" width="300">​</p>
+<p>​<img src="/posts/16549/image-20240719020600-4rt1tdj.png" alt="image" width="700">​</p>
 <ol start="3" type="1">
 <li>到【SSL/TLS】-【源服务器】选择创建证书，使用默认配置进行创建，将①中的文本保存为<code>example.com.pem</code>​文件，将②中的文本保存为<code>example.com.key</code>​文件。可以新建文本文档，粘贴保存，再连带txt后缀将文件名修改为给定的文件名。这两个文件记住保存位置，后续会使用到</li>
 </ol>
-<p>​<img src="/posts/16549/image-20240719015135-7b2c6gs.png" alt="image">​</p>
+<p>​<img src="/posts/16549/image-20240719015135-7b2c6gs.png" alt="image" width="700">​</p>
 <ol start="4" type="1">
 <li>到【规则】-【Origin
 Rules】选择创建规则，选择<code>所有传入请求</code>​，下面选择<code>重写到</code>​
 端口填写为<code>12345</code>​, 部署后启用</li>
 </ol>
-<p>​<img src="/posts/16549/image-20240719015756-zk1kzcu.png" alt="image">​</p>
+<p>​<img src="/posts/16549/image-20240719015756-zk1kzcu.png" alt="image" width="700">​</p>
 <h2 id="第三步配置lucky的证书和web反向代理">第三步：配置Lucky的证书和Web反向代理</h2>
 <p>登录Lucky的管理页面</p>
 <ol type="1">
 <li><p>打开【安全管理】，选择【添加证书】</p></li>
 <li><p>其中【证书】选择刚才保存的<code>example.com.pem</code>​文件，【Key】选择保存的<code>example.com.key</code>​文件，选择好后点击添加</p></li>
 </ol>
-<p><img src="/posts/16549/image-20240719020916-nmz3fae.png" alt="image">​</p>
+<p><img src="/posts/16549/image-20240719020916-nmz3fae.png" alt="image" width="700">​</p>
 <ol start="3" type="1">
 <li>打开【Web服务】，选择【添加Web服务规则】配置web反向代理服务，举例如下图，其中后端地址更改为你想代理的局域网服务的IP加端口</li>
 </ol>
