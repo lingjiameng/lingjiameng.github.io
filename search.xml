@@ -271,7 +271,7 @@ Rules】选择创建规则，选择<code>所有传入请求</code>​，下面�
 端口填写为<code>12345</code>​, 部署后启用</li>
 </ol>
 <p>​<img src="/posts/16549/image-20240719015756-zk1kzcu.png" alt="image" width="700">​</p>
-<h2 id="第三步配置lucky的证书和web反向代理">第三步：配置Lucky的证书和Web反向代理</h2>
+<h3 id="第三步配置lucky的证书和web反向代理">第三步：配置Lucky的证书和Web反向代理</h3>
 <p>登录Lucky的管理页面</p>
 <ol type="1">
 <li><p>打开【安全管理】，选择【添加证书】</p></li>
